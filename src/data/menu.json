@@ -1,0 +1,142 @@
+{
+  "categories": [
+    {
+      "id": "peruvian",
+      "name": "Cocina Peruana",
+      "items": [
+        {
+          "id": "lomo-saltado",
+          "name": "Lomo Saltado",
+          "description": "Tiras de lomo salteadas con cebolla, tomate y papas fritas, servido con arroz",
+          "price": 4500,
+          "allergens": ["gluten"],
+          "isDailySpecial": true,
+          "image": "/assets/dishes/lomo-saltado.jpg"
+        },
+        {
+          "id": "aji-de-gallina",
+          "name": "Ají de Gallina",
+          "description": "Pollo desmenuzado en salsa cremosa de ají amarillo con nueces, servido con arroz y papa",
+          "price": 4200,
+          "allergens": ["dairy", "nuts"],
+          "image": "/assets/dishes/aji-de-gallina.jpg"
+        },
+        {
+          "id": "ceviche-clasico",
+          "name": "Ceviche Clásico",
+          "description": "Pescado fresco marinado en limón, cebolla morada, ají limo y cilantro",
+          "price": 5000,
+          "allergens": ["shellfish"],
+          "image": "/assets/dishes/ceviche.jpg"
+        },
+        {
+          "id": "causa-limena",
+          "name": "Causa Limeña",
+          "description": "Terrina de papa amarilla rellena con pollo, palta y mayonesa",
+          "price": 3800,
+          "allergens": ["eggs"],
+          "image": "/assets/dishes/causa.jpg"
+        },
+        {
+          "id": "tallarines-verdes",
+          "name": "Tallarines Verdes",
+          "description": "Pasta con salsa de albahaca, espinaca y queso fresco, estilo peruano",
+          "price": 3500,
+          "allergens": ["gluten", "dairy"],
+          "image": "/assets/dishes/tallarines-verdes.jpg"
+        },
+        {
+          "id": "arroz-con-pollo",
+          "name": "Arroz con Pollo",
+          "description": "Arroz verde con pollo tierno, cilantro y vegetales",
+          "price": 4000,
+          "image": "/assets/dishes/arroz-con-pollo.jpg"
+        },
+        {
+          "id": "papa-rellena",
+          "name": "Papa Rellena",
+          "description": "Papa rellena de carne picada, huevo duro, aceitunas y pasas, frita hasta dorar",
+          "price": 3200,
+          "allergens": ["gluten", "eggs"],
+          "image": "/assets/dishes/papa-rellena.jpg"
+        },
+        {
+          "id": "anticuchos",
+          "name": "Anticuchos de Corazón",
+          "description": "Brochetas de corazón de res marinadas en ají panca, asadas a la parrilla",
+          "price": 4800,
+          "image": "/assets/dishes/anticuchos.jpg"
+        }
+      ]
+    },
+    {
+      "id": "argentine",
+      "name": "Cocina Argentina",
+      "items": [
+        {
+          "id": "milanesa-napolitana",
+          "name": "Milanesa Napolitana",
+          "description": "Milanesa de ternera cubierta con jamón, tomate y queso gratinado, con papas fritas",
+          "price": 4600,
+          "allergens": ["gluten", "dairy"],
+          "isDailySpecial": true,
+          "image": "/assets/dishes/milanesa-napolitana.jpg"
+        },
+        {
+          "id": "empanadas-carne",
+          "name": "Empanadas de Carne",
+          "description": "Empanadas criollas rellenas de carne picada a cuchillo, cebolla, huevo y aceitunas (3 unidades)",
+          "price": 2800,
+          "allergens": ["gluten", "eggs"],
+          "image": "/assets/dishes/empanadas.jpg"
+        },
+        {
+          "id": "bife-chorizo",
+          "name": "Bife de Chorizo",
+          "description": "Corte argentino de 300g a la parrilla, con ensalada mixta y papas",
+          "price": 5500,
+          "image": "/assets/dishes/bife-chorizo.jpg"
+        },
+        {
+          "id": "choripan",
+          "name": "Choripán Completo",
+          "description": "Chorizo criollo a la parrilla en pan francés con chimichurri",
+          "price": 2500,
+          "allergens": ["gluten"],
+          "image": "/assets/dishes/choripan.jpg"
+        },
+        {
+          "id": "locro",
+          "name": "Locro Criollo",
+          "description": "Guiso tradicional de maíz, porotos, zapallo y carne de cerdo, con queso de cabra",
+          "price": 4200,
+          "allergens": ["dairy"],
+          "image": "/assets/dishes/locro.jpg"
+        },
+        {
+          "id": "matambre-pizza",
+          "name": "Matambre a la Pizza",
+          "description": "Matambre relleno gratinado con salsa, jamón, morrón y queso",
+          "price": 4800,
+          "allergens": ["dairy"],
+          "image": "/assets/dishes/matambre-pizza.jpg"
+        },
+        {
+          "id": "provoleta",
+          "name": "Provoleta a la Parrilla",
+          "description": "Queso provolone asado con orégano y ají molido, con pan casero",
+          "price": 3500,
+          "allergens": ["dairy", "gluten"],
+          "image": "/assets/dishes/provoleta.jpg"
+        },
+        {
+          "id": "guiso-lentejas",
+          "name": "Guiso de Lentejas",
+          "description": "Guiso casero de lentejas con chorizo, panceta y vegetales",
+          "price": 3800,
+          "image": "/assets/dishes/guiso-lentejas.jpg"
+        }
+      ]
+    }
+  ]
+}

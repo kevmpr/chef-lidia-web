@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import DailySpecial from '../components/DailySpecial.astro';
+---
+
+<Layout
+  title="Chef Lidia y Familia - Comida Casera Peruana y Argentina en Parque Patricios"
+  description="Descubrí la auténtica cocina casera peruana y argentina en Parque Patricios. Menú del día, delivery y viandas corporativas. Lomo saltado, milanesas y mucho más."
+>
+  <Navbar />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-primary text-cream py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+            Chef Lidia y Familia
+          </h1>
+          <p class="text-xl md:text-2xl mb-4 text-cream/90">
+            Comida casera Peruana y Argentina
+          </p>
+          <p class="text-lg mb-8 text-cream/80">
+            Cocina artesanal con el sabor de casa. Ubicados en el corazón de Parque Patricios, CABA.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <Button href="/menu" variant="secondary" size="lg">
+              Ver Menú
+            </Button>
+            <Button href="/empresas" variant="primary" size="lg" class="border-2 border-cream">
+              Viandas Corporativas
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Specials Section -->
+    <DailySpecial />
+
+    <!-- Location Info -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+          Visitanos
+        </h2>
+        <p class="text-lg text-gray-600 mb-4">
+          Av Colonia 95, Parque Patricios, CABA
+        </p>
+        <p class="text-gray-600">
+          Lun a Vie 11:00-15:30 | Vie y Sáb 19:00-00:00
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppButton type="b2c" />
+</Layout>
