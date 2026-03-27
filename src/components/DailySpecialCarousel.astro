@@ -1,0 +1,187 @@
+---
+import menuData from '../data/menu.json';
+import type { MenuData } from '../types/menu';
+
+// Filter menu items for daily specials
+const menu = menuData as MenuData;
+const dailySpecials = menu.categories
+  .flatMap(category => category.items)
+  .filter(item => item.isDailySpecial === true);
+---
+
+{dailySpecials.length > 0 && (
+  <section class="bg-primary text-cream py-12 md:py-16 overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mb-3">
+          Menú del Día
+        </h2>
+        <p class="text-lg text-cream/90 max-w-2xl mx-auto">
+          Platos especiales preparados frescos cada día. Sabores auténticos de la cocina Peruana y Argentina.
+        </p>
+      </div>
+
+      <!-- Carousel Container -->
+      <div class="relative max-w-5xl mx-auto">
+        <div class="carousel-wrapper">
+          <div class="carousel-track">
+            {dailySpecials.map((item, index) => (
+              <div class="carousel-slide" data-slide={index}>
+                <div class="aspect-[4/3] md:aspect-[16/9] overflow-hidden rounded-xl shadow-2xl">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="text-center mt-4">
+                  <h3 class="text-2xl font-serif font-bold text-cream">{item.name}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="flex justify-center gap-2 mt-6">
+          {dailySpecials.map((_, index) => (
+            <button
+              class="carousel-dot"
+              data-slide-to={index}
+              aria-label={`Ir al plato ${index + 1}`}
+            >
+              <span class="sr-only">Plato {index + 1}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-cream/80 text-sm">
+          Consultá disponibilidad del día por WhatsApp
+        </p>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel-track {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+  }
+
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(253, 245, 230, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .carousel-dot:hover {
+    background-color: rgba(253, 245, 230, 0.5);
+    transform: scale(1.2);
+  }
+
+  .carousel-dot.active {
+    background-color: rgba(253, 245, 230, 0.9);
+    width: 32px;
+    border-radius: 6px;
+  }
+</style>
+
+<script>
+  // Carousel functionality
+  function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    let autoplayInterval: number;
+
+    if (slides.length === 0) return;
+
+    function showSlide(index: number) {
+      // Remove active class from all slides and dots
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      // Add active class to current slide and dot
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      const next = (currentSlide + 1) % slides.length;
+      showSlide(next);
+    }
+
+    function startAutoplay() {
+      autoplayInterval = window.setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+      }
+    }
+
+    // Add click handlers to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        stopAutoplay();
+        showSlide(index);
+        startAutoplay();
+      });
+    });
+
+    // Initialize
+    showSlide(0);
+    startAutoplay();
+
+    // Pause on hover
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    if (carouselWrapper) {
+      carouselWrapper.addEventListener('mouseenter', stopAutoplay);
+      carouselWrapper.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', stopAutoplay);
+  }
+
+  // Initialize carousel when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousel);
+  } else {
+    initCarousel();
+  }
+</script>

@@ -4,58 +4,86 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import DailySpecial from '../components/DailySpecial.astro';
+import DailySpecialCarousel from '../components/DailySpecialCarousel.astro';
 ---
 
 <Layout
-  title="Chef Lidia y Familia - Comida Casera Peruana y Argentina en Parque Patricios"
-  description="Descubrí la auténtica cocina casera peruana y argentina en Parque Patricios. Menú del día, delivery y viandas corporativas. Lomo saltado, milanesas y mucho más."
+  title="Catering Peruana y Argentina Premium - Chef Lidia | Parque Patricios, CABA"
+  description="Catering profesional de cocina peruana y argentina en Parque Patricios. Viandas corporativas con factura C, menú ejecutivo y especialidades gourmet. Lomo saltado, milanesas premium y más."
 >
   <Navbar />
 
   <main>
     <!-- Hero Section -->
-    <section class="bg-primary text-cream py-16 md:py-24">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-            Chef Lidia y Familia
+    <section class="relative bg-primary text-cream py-20 md:py-28 lg:py-32 overflow-hidden">
+      <!-- Decorative gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/40 via-transparent to-primary-light/20"></div>
+
+      <!-- Decorative accent elements -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-cream/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-light/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl">
+          <!-- Small accent badge -->
+          <div class="inline-flex items-center gap-2 bg-cream/10 backdrop-blur-sm border border-cream/20 rounded-full px-4 py-2 mb-6">
+            <span class="w-2 h-2 bg-cream rounded-full animate-pulse"></span>
+            <span class="text-sm font-medium text-cream/90">Ingredientes Premium</span>
+          </div>
+
+          <!-- Main headline -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold mb-6 leading-tight">
+            Excelencia Gastronómica<br/>
+            <span class="text-cream/90">para tu Empresa</span>
           </h1>
-          <p class="text-xl md:text-2xl mb-4 text-cream/90">
-            Comida casera Peruana y Argentina
+
+          <!-- Subheadline -->
+          <p class="text-xl md:text-2xl lg:text-3xl mb-6 text-cream/95 font-light leading-relaxed max-w-3xl">
+            Especialidades peruanas y argentinas preparadas con ingredientes premium
           </p>
-          <p class="text-lg mb-8 text-cream/80">
-            Cocina artesanal con el sabor de casa. Ubicados en el corazón de Parque Patricios, CABA.
+
+          <!-- Value proposition -->
+          <p class="text-base md:text-lg mb-10 text-cream/80 leading-relaxed max-w-2xl">
+            Ofrecemos soluciones de catering profesional con factura C para empresas del Distrito Tecnológico, menú ejecutivo diario y servicio de delivery. Calidad garantizada en cada plato.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <Button href="/menu" variant="secondary" size="lg">
-              Ver Menú
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <Button href="/empresas" variant="secondary" size="lg" class="shadow-xl hover:shadow-2xl hover:scale-105">
+              Soluciones Corporativas
             </Button>
-            <Button href="/empresas" variant="primary" size="lg" class="border-2 border-cream">
-              Viandas Corporativas
+            <Button href="/menu" variant="primary" size="lg" class="border-2 border-cream hover:bg-primary-light shadow-lg hover:shadow-xl hover:scale-105">
+              Ver Menú Completo
             </Button>
+          </div>
+
+          <!-- Trust indicators -->
+          <div class="flex flex-wrap gap-6 text-sm text-cream/70">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-cream" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Menú Ejecutivo Diario</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-cream" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Delivery en CABA</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-cream" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Catering Empresarial</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Daily Specials Section -->
-    <DailySpecial />
-
-    <!-- Location Info -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-          Visitanos
-        </h2>
-        <p class="text-lg text-gray-600 mb-4">
-          Av Colonia 95, Parque Patricios, CABA
-        </p>
-        <p class="text-gray-600">
-          Lun a Vie 11:00-15:30 | Vie y Sáb 19:00-00:00
-        </p>
-      </div>
-    </section>
+    <!-- Daily Specials Carousel -->
+    <DailySpecialCarousel />
   </main>
 
   <Footer />
