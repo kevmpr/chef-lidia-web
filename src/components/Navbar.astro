@@ -17,17 +17,14 @@ const currentPath = Astro.url.pathname;
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16 md:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-3">
+      <a href="/" class="flex items-center">
         <Image
           src={logo}
           alt="Chef Lidia y Familia"
-          width={50}
-          height={50}
-          class="w-12 h-12 md:w-14 md:h-14"
+          width={150}
+          height={60}
+          class="h-12 w-auto md:h-14"
         />
-        <span class="text-lg md:text-xl font-serif font-bold text-primary hidden sm:inline">
-          Chef Lidia
-        </span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -36,10 +33,10 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={href}
-              class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+              class={`px-3 py-2 text-sm font-medium transition-colors border-b-2 ${
                 currentPath === href
-                  ? 'text-primary bg-cream-dark'
-                  : 'text-gray-700 hover:text-primary hover:bg-cream-dark'
+                  ? 'text-primary border-primary'
+                  : 'text-gray-700 border-transparent hover:text-primary'
               }`}
             >
               {label}
@@ -51,7 +48,7 @@ const currentPath = Astro.url.pathname;
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded-md text-gray-700 hover:text-primary hover:bg-cream-dark focus:outline-none focus:ring-2 focus:ring-primary"
+        class="md:hidden p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary"
         aria-label="Toggle menu"
       >
         <svg
@@ -77,10 +74,10 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={href}
-              class={`block px-4 py-3 rounded-md text-base font-medium transition-colors ${
+              class={`block px-4 py-3 text-base font-medium transition-colors border-l-4 ${
                 currentPath === href
-                  ? 'text-primary bg-cream-dark'
-                  : 'text-gray-700 hover:text-primary hover:bg-cream-dark'
+                  ? 'text-primary border-primary font-bold'
+                  : 'text-gray-700 border-transparent hover:text-primary'
               }`}
             >
               {label}
