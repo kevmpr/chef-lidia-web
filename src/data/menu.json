@@ -12,7 +12,7 @@
           "allergens": ["gluten", "soy", "eggs"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa-grande.jpg"
+          "image": "/assets/dishes/arroz-chaufa.png"
         },
         {
           "id": "arroz-chaufa-mediano",
@@ -21,7 +21,7 @@
           "price": 20000,
           "allergens": ["gluten", "soy", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa-mediano.jpg"
+          "image": "/assets/dishes/arroz-chaufa.png"
         },
         {
           "id": "arroz-chaufa-especial",
@@ -31,7 +31,7 @@
           "allergens": ["gluten", "soy", "eggs", "shellfish"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa-especial.jpg"
+          "image": "/assets/dishes/arroz-chaufa-especial.png"
         },
         {
           "id": "arroz-chaufa-vegetariano",
@@ -41,7 +41,7 @@
           "allergens": ["gluten", "soy", "eggs"],
           "isVegetarian": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa-vegetariano.jpg"
+          "image": "/assets/dishes/arroz-chaufa-vegetariano.png"
         },
         {
           "id": "lomo-saltado",
@@ -51,7 +51,7 @@
           "allergens": ["gluten"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/lomo-saltado.jpg"
+          "image": "/assets/dishes/lomo-saltado.png"
         },
         {
           "id": "tallarin-saltado",
@@ -60,7 +60,7 @@
           "price": 23000,
           "allergens": ["gluten", "soy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/tallarin-saltado.jpg"
+          "image": "/assets/dishes/tallarin-saltado.png"
         },
         {
           "id": "aeropuerto-de-pollo",
@@ -69,7 +69,7 @@
           "price": 24000,
           "allergens": ["gluten", "soy", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/aeropuerto-pollo.jpg"
+          "image": "/assets/dishes/aeropuerto.png"
         },
         {
           "id": "mostrito",
@@ -79,7 +79,7 @@
           "allergens": ["gluten", "soy", "eggs"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/mostrito.jpg"
+          "image": "/assets/dishes/mostrito.png"
         },
         {
           "id": "pollo-broaster",
@@ -97,7 +97,7 @@
           "price": 26000,
           "allergens": ["gluten", "shellfish"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/chicharron-pescado.jpg"
+          "image": "/assets/dishes/chicharron-de-pescado.png"
         },
         {
           "id": "rabas-con-fritas",
@@ -106,7 +106,7 @@
           "price": 26000,
           "allergens": ["gluten", "shellfish", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/rabas-fritas.jpg"
+          "image": "/assets/dishes/rabas.png"
         },
         {
           "id": "salchipapa-mediana",
@@ -115,7 +115,7 @@
           "price": 15000,
           "allergens": ["gluten"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/salchipapa-mediana.jpg"
+          "image": "/assets/dishes/salchipapa.png"
         },
         {
           "id": "salchipapa-grande",
@@ -124,7 +124,7 @@
           "price": 18000,
           "allergens": ["gluten"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/salchipapa-grande.jpg"
+          "image": "/assets/dishes/salchipapa.png"
         },
         {
           "id": "salchipollo",
@@ -133,7 +133,7 @@
           "price": 24000,
           "allergens": ["gluten"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/salchipollo.jpg"
+          "image": null
         },
         {
           "id": "arroz-con-vegetales",
@@ -143,7 +143,7 @@
           "allergens": ["soy"],
           "isVegetarian": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-vegetales.jpg"
+          "image": null
         },
         {
           "id": "tallarines-con-vegetales",
@@ -153,7 +153,7 @@
           "allergens": ["gluten", "soy"],
           "isVegetarian": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/tallarines-vegetales.jpg"
+          "image": null
         }
       ]
     },
@@ -167,7 +167,7 @@
           "description": "Bife de chorizo jugoso a la parrilla con papas fritas, ensalada o puré",
           "price": 15000,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/bife-guarnicion.jpg"
+          "image": null
         },
         {
           "id": "grille-con-guarnicion",
@@ -175,7 +175,7 @@
           "description": "Pechuga de pollo grillé con tu elección de papas fritas, ensalada o puré",
           "price": 13000,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/grille-guarnicion.jpg"
+          "image": null
         },
         {
           "id": "milanesa-de-carne-guarnicion",
@@ -184,7 +184,7 @@
           "price": 12000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-carne-guarnicion.jpg"
+          "image": null
         },
         {
           "id": "milanesa-de-pollo-guarnicion",
@@ -193,7 +193,7 @@
           "price": 12000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-pollo-guarnicion.jpg"
+          "image": null
         },
         {
           "id": "milanesa-de-berenjena-guarnicion",
@@ -203,7 +203,7 @@
           "allergens": ["gluten", "eggs"],
           "isVegetarian": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-berenjena-guarnicion.jpg"
+          "image": null
         },
         {
           "id": "milanesa-de-soja-guarnicion",
@@ -213,7 +213,7 @@
           "allergens": ["gluten", "eggs", "soy"],
           "isVegetarian": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-soja-guarnicion.jpg"
+          "image": null
         },
         {
           "id": "milanesa-carne-caballo",
@@ -223,7 +223,7 @@
           "allergens": ["gluten", "eggs"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-carne-caballo.jpg"
+          "image": null
         },
         {
           "id": "milanesa-carne-fugazzeta",
@@ -232,7 +232,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-carne-fugazzeta.jpg"
+          "image": null
         },
         {
           "id": "milanesa-carne-napolitana",
@@ -241,7 +241,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-carne-napolitana.jpg"
+          "image": null
         },
         {
           "id": "milanesa-pollo-caballo",
@@ -250,7 +250,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-pollo-caballo.jpg"
+          "image": null
         },
         {
           "id": "milanesa-pollo-fugazzeta",
@@ -259,7 +259,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-pollo-fugazzeta.jpg"
+          "image": null
         },
         {
           "id": "milanesa-pollo-napolitana",
@@ -268,7 +268,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/milanesa-pollo-napolitana.jpg"
+          "image": null
         }
       ]
     },
@@ -283,7 +283,7 @@
           "price": 13000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/hamburguesa-bm.jpg"
+          "image": null
         },
         {
           "id": "hamburguesa-cuarto",
@@ -292,7 +292,7 @@
           "price": 13000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/hamburguesa-cuarto.jpg"
+          "image": null
         },
         {
           "id": "hamburguesa-clasica",
@@ -301,7 +301,7 @@
           "price": 13000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/hamburguesa-clasica.jpg"
+          "image": null
         },
         {
           "id": "hamburguesa-de-la-casa",
@@ -310,7 +310,7 @@
           "price": 15000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/hamburguesa-casa.jpg"
+          "image": null
         },
         {
           "id": "sandwich-simple",
@@ -319,7 +319,7 @@
           "price": 9000,
           "allergens": ["gluten", "dairy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/sandwich-simple.jpg"
+          "image": null
         },
         {
           "id": "sandwich-completo",
@@ -328,7 +328,7 @@
           "price": 11000,
           "allergens": ["gluten", "dairy", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/sandwich-completo.jpg"
+          "image": null
         }
       ]
     },
@@ -343,7 +343,7 @@
           "price": 2000,
           "allergens": ["gluten", "eggs"],
           "dishType": "empanadas",
-          "image": "/assets/dishes/empanada-carne.jpg"
+          "image": null
         },
         {
           "id": "empanada-carne-frita",
@@ -352,7 +352,7 @@
           "price": 2000,
           "allergens": ["gluten", "eggs"],
           "dishType": "empanadas",
-          "image": "/assets/dishes/empanada-carne-frita.jpg"
+          "image": null
         },
         {
           "id": "empanada-cebolla-queso",
@@ -362,7 +362,7 @@
           "allergens": ["gluten", "dairy"],
           "isVegetarian": true,
           "dishType": "empanadas",
-          "image": "/assets/dishes/empanada-cebolla-queso.jpg"
+          "image": null
         },
         {
           "id": "empanada-jamon-queso",
@@ -372,7 +372,7 @@
           "allergens": ["gluten", "dairy"],
           "isVegetarian": true,
           "dishType": "empanadas",
-          "image": "/assets/dishes/empanada-jamon-queso.jpg"
+          "image": null
         },
         {
           "id": "empanada-pollo",
@@ -381,7 +381,7 @@
           "price": 2000,
           "allergens": ["gluten"],
           "dishType": "empanadas",
-          "image": "/assets/dishes/empanada-pollo.jpg"
+          "image": null
         },
         {
           "id": "empanada-puerro-jamon-queso",
@@ -391,7 +391,7 @@
           "allergens": ["gluten", "dairy"],
           "isVegetarian": true,
           "dishType": "empanadas",
-          "image": "/assets/dishes/empanada-puerro.jpg"
+          "image": null
         },
         {
           "id": "empanada-verdura",
@@ -401,7 +401,7 @@
           "allergens": ["gluten", "eggs"],
           "isVegetarian": true,
           "dishType": "empanadas",
-          "image": "/assets/dishes/empanada-verdura.jpg"
+          "image": null
         }
       ]
     },
@@ -416,7 +416,7 @@
           "price": 7000,
           "allergens": ["gluten", "eggs", "shellfish"],
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tarta-atun.jpg"
+          "image": null
         },
         {
           "id": "tarta-calabaza",
@@ -426,7 +426,7 @@
           "allergens": ["gluten", "eggs"],
           "isVegetarian": true,
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tarta-calabaza.jpg"
+          "image": null
         },
         {
           "id": "tarta-jamon-queso",
@@ -436,7 +436,7 @@
           "allergens": ["gluten", "eggs", "dairy"],
           "isVegetarian": true,
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tarta-jamon-queso.jpg"
+          "image": null
         },
         {
           "id": "tarta-pollo",
@@ -445,7 +445,7 @@
           "price": 7000,
           "allergens": ["gluten", "eggs"],
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tarta-pollo.jpg"
+          "image": null
         },
         {
           "id": "tarta-verdura",
@@ -455,7 +455,7 @@
           "allergens": ["gluten", "eggs"],
           "isVegetarian": true,
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tarta-verdura.jpg"
+          "image": null
         },
         {
           "id": "tarta-zapallito",
@@ -465,7 +465,7 @@
           "allergens": ["gluten", "eggs"],
           "isVegetarian": true,
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tarta-zapallito.jpg"
+          "image": null
         },
         {
           "id": "tortilla-papa",
@@ -475,7 +475,7 @@
           "allergens": ["eggs"],
           "isVegetarian": true,
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tortilla-papa.jpg"
+          "image": null
         },
         {
           "id": "tortilla-verdura",
@@ -485,7 +485,7 @@
           "allergens": ["eggs"],
           "isVegetarian": true,
           "dishType": "tartas-tortillas",
-          "image": "/assets/dishes/tortilla-verdura.jpg"
+          "image": null
         }
       ]
     },
@@ -501,7 +501,7 @@
           "allergens": ["eggs"],
           "isVegetarian": true,
           "dishType": "ensaladas",
-          "image": "/assets/dishes/ensalada-mediana.jpg"
+          "image": null
         },
         {
           "id": "ensalada-grande",
@@ -511,7 +511,7 @@
           "allergens": ["eggs"],
           "isVegetarian": true,
           "dishType": "ensaladas",
-          "image": "/assets/dishes/ensalada-grande.jpg"
+          "image": null
         },
         {
           "id": "ensalada-pollo-mediana",
@@ -520,7 +520,7 @@
           "price": 11000,
           "allergens": ["eggs"],
           "dishType": "ensaladas",
-          "image": "/assets/dishes/ensalada-pollo-mediana.jpg"
+          "image": null
         },
         {
           "id": "ensalada-pollo-grande",
@@ -529,7 +529,7 @@
           "price": 13000,
           "allergens": ["eggs"],
           "dishType": "ensaladas",
-          "image": "/assets/dishes/ensalada-pollo-grande.jpg"
+          "image": null
         },
         {
           "id": "ensalada-atun-mediana",
@@ -538,7 +538,7 @@
           "price": 12000,
           "allergens": ["eggs", "shellfish"],
           "dishType": "ensaladas",
-          "image": "/assets/dishes/ensalada-atun-mediana.jpg"
+          "image": null
         },
         {
           "id": "ensalada-atun-grande",
@@ -547,7 +547,7 @@
           "price": 14000,
           "allergens": ["eggs", "shellfish"],
           "dishType": "ensaladas",
-          "image": "/assets/dishes/ensalada-atun-grande.jpg"
+          "image": null
         }
       ]
     },
@@ -561,7 +561,7 @@
           "description": "Papas fritas doradas y crocantes, ideales para acompañar cualquier plato",
           "price": 9000,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-fritas-medianas.jpg"
+          "image": null
         },
         {
           "id": "papas-fritas-grandes",
@@ -569,7 +569,7 @@
           "description": "Papas fritas generosas doradas y crocantes, perfectas para compartir",
           "price": 11000,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-fritas-grandes.jpg"
+          "image": null
         },
         {
           "id": "papas-fritas-cheddar-medianas",
@@ -578,7 +578,7 @@
           "price": 11500,
           "allergens": ["dairy"],
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-cheddar-medianas.jpg"
+          "image": null
         },
         {
           "id": "papas-fritas-cheddar-grandes",
@@ -587,7 +587,7 @@
           "price": 13000,
           "allergens": ["dairy"],
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-cheddar-grandes.jpg"
+          "image": null
         },
         {
           "id": "papas-fritas-cheddar-bacon-medianas",
@@ -597,7 +597,7 @@
           "allergens": ["dairy"],
           "isDailySpecial": true,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-cheddar-bacon-medianas.jpg"
+          "image": null
         },
         {
           "id": "papas-fritas-cheddar-bacon-grandes",
@@ -606,7 +606,7 @@
           "price": 15000,
           "allergens": ["dairy"],
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-cheddar-bacon-grandes.jpg"
+          "image": null
         },
         {
           "id": "papas-fritas-provenzal-medianas",
@@ -614,7 +614,7 @@
           "description": "Papas fritas condimentadas con ajo, perejil fresco y hierbas aromáticas",
           "price": 10500,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-provenzal-medianas.jpg"
+          "image": null
         },
         {
           "id": "papas-fritas-provenzal-grandes",
@@ -622,7 +622,7 @@
           "description": "Papas fritas generosas condimentadas con ajo, perejil fresco y hierbas aromáticas",
           "price": 12500,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/papas-provenzal-grandes.jpg"
+          "image": null
         },
         {
           "id": "revuelto-gramajo",
@@ -631,7 +631,7 @@
           "price": 15000,
           "allergens": ["eggs", "dairy"],
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/revuelto-gramajo.jpg"
+          "image": null
         },
         {
           "id": "guarnicion-extra-chica",
@@ -639,7 +639,7 @@
           "description": "Porción extra de papas fritas, puré o ensalada para acompañar tu plato",
           "price": 8000,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/guarnicion-extra-chica.jpg"
+          "image": null
         },
         {
           "id": "guarnicion-extra-mediana",
@@ -647,7 +647,7 @@
           "description": "Porción extra mediana de papas fritas, puré o ensalada para acompañar tu plato",
           "price": 9000,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/guarnicion-extra-mediana.jpg"
+          "image": null
         },
         {
           "id": "guarnicion-extra-grande",
@@ -655,7 +655,7 @@
           "description": "Porción extra grande de papas fritas, puré o ensalada, ideal para compartir",
           "price": 11000,
           "dishType": "acompanamientos",
-          "image": "/assets/dishes/guarnicion-extra-grande.jpg"
+          "image": null
         }
       ]
     }
