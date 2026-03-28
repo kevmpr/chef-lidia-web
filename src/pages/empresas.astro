@@ -2,12 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import Button from '../components/Button.astro';
-import Badge from '../components/Badge.astro';
-import ReviewCard from '../components/ReviewCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { Image } from 'astro:assets';
+import companies1 from '../assets/companies1.png';
+import companies2 from '../assets/companies2.png';
 
-// Pricing tiers for corporate catering
 const pricingTiers = [
   {
     range: '5-15 viandas',
@@ -19,6 +18,7 @@ const pricingTiers = [
     range: '15-30 viandas',
     label: 'Menú Especial',
     description: 'Perfecto para equipos medianos',
+    popular: true,
     features: ['Menú variado', 'Entrega programada', 'Factura C incluida', 'Menú vegetariano incluido', 'Priorización de pedidos']
   },
   {
@@ -33,344 +33,316 @@ const testimonials = [
   {
     name: 'María González',
     company: 'Consultora RH Soluciones',
-    rating: 5,
-    text: 'Llevamos 8 meses pidiendo viandas para todo el equipo. La calidad es excelente, la variedad no aburre y la facturación es impecable. Totalmente recomendable.',
+    text: 'Llevamos 8 meses pidiendo viandas para todo el equipo. La calidad es excelente, la variedad no aburre y la facturación es impecable.',
     date: 'Marzo 2026'
   },
   {
     name: 'Carlos Martínez',
     company: 'Constructora Del Sur',
-    rating: 5,
-    text: 'Somos una empresa de construcción y necesitábamos algo práctico para los chicos en obra. Chef Lidia nos dio una solución a medida con entrega puntual y buena comida.',
+    text: 'Somos una empresa de construcción y necesitábamos algo práctico para los chicos en obra. Chef Lidia nos dio una solución a medida con entrega puntual.',
     date: 'Febrero 2026'
   },
   {
     name: 'Valeria Ríos',
     company: 'Centro Médico Integral',
-    rating: 5,
-    text: 'El equipo de enfermería almuerza todos los días con Chef Lidia. Nos encanta la opción vegetariana y que siempre llegue a tiempo. Un servicio muy profesional.',
+    text: 'El equipo de enfermería almuerza todos los días con Chef Lidia. Nos encanta la opción vegetariana y que siempre llegue a tiempo.',
     date: 'Enero 2026'
   },
   {
     name: 'Sebastián Lara',
     company: 'Agencia Dental Odontogroup',
-    rating: 5,
     text: 'Empezamos con 10 viandas y ahora pedimos más de 25. La comida es rica, el trato es excelente y nunca tuvimos un problema con la Factura C.',
     date: 'Diciembre 2025'
+  }
+];
+
+const faq = [
+  {
+    q: '¿Cuál es el horario de entrega?',
+    a: 'Realizamos entregas de lunes a viernes entre las 11:00 y 15:00 hs. Recomendamos pedir con al menos 24 hs de anticipación. Si necesitás el mismo día, hacelo con un mínimo de 3 hs, sujeto a disponibilidad.'
+  },
+  {
+    q: '¿Cómo funciona el pedido mínimo?',
+    a: 'Trabajamos con empresas de cualquier tamaño. Según el volumen de tu pedido, evaluamos qué plan se ajusta mejor a tu equipo y te lo comunicamos sin compromiso.'
+  },
+  {
+    q: '¿Qué métodos de pago aceptan?',
+    a: 'Aceptamos transferencia bancaria, Mercado Pago y efectivo. Emitimos Factura C con todos los pedidos corporativos.'
+  },
+  {
+    q: '¿Tienen opciones vegetarianas?',
+    a: 'Sí, contamos con opciones vegetarianas dentro de nuestro menú diario. Revisá nuestro menú completo para ver el detalle de los platos disponibles.'
   }
 ];
 ---
 
 <Layout
   title="Viandas Corporativas para Empresas - Chef Lidia"
-  description="Servicio de viandas para empresas de todo rubro. Factura C, descuentos por volumen, entrega programada en Parque Patricios y zona. Comida casera peruana y argentina para tu equipo."
+  description="Servicio de viandas para empresas de todo rubro. Factura C, descuentos por volumen, entrega programada en Parque Patricios y zona."
 >
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Chef Lidia y Familia",
-    "image": "/assets/cheflidia-logo.png",
-    "description": "Servicio de viandas corporativas y comida casera peruana y argentina",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av Colonia 95",
-      "addressLocality": "Parque Patricios",
-      "addressRegion": "CABA",
-      "postalCode": "C1437",
-      "addressCountry": "AR"
-    },
-    "telephone": "+54-9-11-2824-0324",
-    "servedCuisine": ["Peruana", "Argentina"],
-    "priceRange": "$$",
-    "openingHours": ["Mo-Fr 11:00-15:30", "Fr-Sa 19:00-00:00"]
-  })} />
-
   <Navbar />
 
-  <main class="bg-cream">
-    <!-- Hero Section with Factura C Badge -->
-    <section class="relative bg-cream py-16 md:py-24 overflow-hidden">
+  <main>
 
+    <!-- ─── HERO (companies1) ─── -->
+    <section class="relative w-full h-[calc(100vh-6rem)] min-h-[560px] overflow-hidden">
+      <Image
+        src={companies1}
+        alt="Equipo almorzando con Chef Lidia"
+        width={1600}
+        height={900}
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/80"></div>
 
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-0">
-        <div class="max-w-3xl">
-          <span class="inline-block text-sm font-semibold tracking-widest text-[#556B2F] uppercase mb-5">Servicio Corporativo</span>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-primary leading-tight">
-            Tu equipo rinde más<br class="hidden sm:block" /> cuando come bien.
+      <div class="absolute bottom-0 left-0 right-0 px-6 pb-14 md:pb-20 lg:pb-24">
+        <div class="container mx-auto max-w-4xl">
+          <span class="inline-block text-xs font-semibold tracking-[0.2em] text-white/60 uppercase mb-5">Servicio Corporativo</span>
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight mb-5">
+            Tu equipo rinde más<br class="hidden sm:block"/> cuando come bien.
           </h1>
-          <p class="text-lg mb-8 text-gray-600 max-w-2xl leading-relaxed">
-            En Chef Lidia creemos que el almuerzo no es un trámite: es el momento donde un equipo recarga energía y vuelve a dar lo mejor. Por eso cada vianda se prepara con los mismos ingredientes y el mismo cuidado que pondríamos en la mesa de nuestra propia familia.
+          <p class="text-lg md:text-xl text-white/75 max-w-2xl leading-relaxed mb-8">
+            En Chef Lidia creemos que el almuerzo no es un trámite: es el momento donde un equipo recarga energía y vuelve a dar lo mejor.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <Button
-              href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa].%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas.%20%C2%BFPodr%C3%ADan%20enviarme%20informaci%C3%B3n%20sobre%20precios%20y%20log%C3%ADstica%3F"
-              variant="secondary"
-              size="lg"
-              class="inline-flex items-center gap-2"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              Solicitar Presupuesto
-            </Button>
-          </div>
+          <a
+            href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa].%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-cream/90 hover:bg-cream text-primary px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Solicitar Presupuesto
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="py-14 md:py-20 bg-cream">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <p class="text-sm font-semibold tracking-widest text-[#556B2F] uppercase mb-2">Por qué elegirnos</p>
-          <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-900">Servicio pensado para empresas</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-
-          <!-- Factura C -->
-          <div class="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
-            <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
-            <div class="p-8 pl-10">
-              <div class="w-16 h-16 rounded-2xl bg-[#556B2F]/10 flex items-center justify-center mb-6 group-hover:bg-[#556B2F]/20 transition-colors duration-300">
-                <svg class="w-9 h-9 text-[#556B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-serif font-bold text-gray-900 mb-2">Factura C</h3>
-              <p class="text-gray-500 text-sm leading-relaxed">Facturación incluida en cada pedido, sin cargos adicionales ni papeleo.</p>
-            </div>
-          </div>
-
-          <!-- Envíos -->
-          <div class="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
-            <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
-            <div class="p-8 pl-10">
-              <div class="w-16 h-16 rounded-2xl bg-[#556B2F]/10 flex items-center justify-center mb-6 group-hover:bg-[#556B2F]/20 transition-colors duration-300">
-                <svg class="w-9 h-9 text-[#556B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-serif font-bold text-gray-900 mb-2">Envíos Programados</h3>
-              <p class="text-gray-500 text-sm leading-relaxed">Entrega puntual de lunes a viernes. Coordinamos el horario que mejor le venga a tu equipo.</p>
-            </div>
-          </div>
-
-          <!-- Descuentos por Volumen -->
-          <div class="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
-            <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
-            <div class="p-8 pl-10">
-              <div class="w-16 h-16 rounded-2xl bg-[#556B2F]/10 flex items-center justify-center mb-6 group-hover:bg-[#556B2F]/20 transition-colors duration-300">
-                <svg class="w-9 h-9 text-[#556B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-serif font-bold text-gray-900 mb-2">Descuentos por Volumen</h3>
-              <p class="text-gray-500 text-sm leading-relaxed">Precios preferenciales para pedidos frecuentes. Consultá por tu tarifa.</p>
-            </div>
-          </div>
-
-        </div>
+    <!-- Divider -->
+    <div class="bg-cream py-4 flex items-center justify-center gap-3">
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+      <div class="flex gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
       </div>
-    </section>
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+    </div>
 
-    <!-- Pricing Tiers -->
-    <section class="py-12 md:py-16 bg-cream">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-3">
-            Planes Corporativos
-          </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Elegí el plan que mejor se adapte al tamaño de tu equipo. A mayor volumen de pedido, mejores precios.
-          </p>
-        </div>
+    <!-- ─── POR QUÉ ELEGIRNOS + PLANES (companies2) ─── -->
+    <section class="relative min-h-[calc(100vh-6rem)]">
+      <Image
+        src={companies2}
+        alt="Servicio de viandas corporativas"
+        width={1600}
+        height={900}
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-stone-900/75"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {pricingTiers.map((tier, index) => (
-            <div class={`bg-white rounded-2xl p-6 border-2 ${index === 1 ? 'border-[#556B2F] shadow-xl scale-105' : 'border-gray-200 shadow-sm'}`}>
-              {index === 1 && (
-                <div class="text-center mb-4">
-                  <span class="inline-block bg-[#556B2F] text-[#FDF5E6] px-3 py-1 rounded-full text-xs font-bold tracking-wide">
-                    MÁS POPULAR
-                  </span>
+      <div class="relative z-10 py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+
+          <!-- Por qué elegirnos -->
+          <div class="mb-20">
+            <div class="mb-10">
+              <span class="inline-block text-xs font-semibold tracking-[0.2em] text-white/50 uppercase mb-3">Por qué elegirnos</span>
+              <h2 class="text-3xl md:text-4xl font-serif font-bold text-white">Servicio pensado para empresas</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div class="group relative bg-cream/90 hover:bg-cream rounded-2xl p-8 border border-cream/30 overflow-hidden transition-all duration-300">
+                <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 </div>
-              )}
-              <h3 class="text-2xl font-serif font-bold text-primary mb-1 text-center">
-                {tier.range}
-              </h3>
-              <p class="text-center text-gray-500 text-sm mb-4">{tier.description}</p>
-              <div class="text-center mb-6">
-                <p class="text-xl font-semibold text-[#556B2F]">{tier.label}</p>
+                <h3 class="text-lg font-serif font-bold text-primary mb-2">Factura C</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Facturación incluida en cada pedido, sin cargos adicionales ni papeleo.</p>
               </div>
-              <ul class="space-y-2 mb-6">
-                {tier.features.map((feature) => (
-                  <li class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-[#556B2F] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-sm text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+
+              <div class="group relative bg-cream/90 hover:bg-cream rounded-2xl p-8 border border-cream/30 overflow-hidden transition-all duration-300">
+                <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+                </div>
+                <h3 class="text-lg font-serif font-bold text-primary mb-2">Envíos Programados</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Entrega puntual de lunes a viernes. Coordinamos el horario que mejor le venga a tu equipo.</p>
+              </div>
+
+              <div class="group relative bg-cream/90 hover:bg-cream rounded-2xl p-8 border border-cream/30 overflow-hidden transition-all duration-300">
+                <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
+                </div>
+                <h3 class="text-lg font-serif font-bold text-primary mb-2">Descuentos por Volumen</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">A mayor volumen de pedido, mejores precios. Consultá por tu tarifa sin compromiso.</p>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </div>
 
-    <!-- Testimonials -->
-    <section class="py-12 md:py-16 bg-cream">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-3">
-            Lo que dicen nuestros clientes
-          </h2>
-        </div>
+          <!-- Planes -->
+          <div>
+            <div class="mb-10">
+              <span class="inline-block text-xs font-semibold tracking-[0.2em] text-white/50 uppercase mb-3">Planes</span>
+              <h2 class="text-3xl md:text-4xl font-serif font-bold text-white">Elegí el plan de tu equipo</h2>
+              <p class="text-white/60 mt-2">A mayor volumen, mejores precios.</p>
+            </div>
 
-        <!-- Testimonials Carousel -->
-        <div class="relative max-w-3xl mx-auto">
-          <div class="overflow-hidden">
-            <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
-              {testimonials.map((review) => (
-                <div class="min-w-full px-2">
-                  <ReviewCard {...review} />
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {pricingTiers.map((tier) => (
+                <div class={`group relative bg-cream/90 hover:bg-cream rounded-2xl p-8 border overflow-hidden transition-all duration-300 ${tier.popular ? 'border-primary/60 ring-2 ring-primary/30' : 'border-cream/30'}`}>
+                  <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+                  {tier.popular && (
+                    <span class="inline-block bg-primary text-cream text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+                      Más popular
+                    </span>
+                  )}
+                  <p class="text-xs font-semibold tracking-widest text-primary/60 uppercase mb-1">{tier.label}</p>
+                  <h3 class="text-2xl font-serif font-bold text-primary mb-1">{tier.range}</h3>
+                  <p class="text-gray-500 text-sm mb-6">{tier.description}</p>
+                  <ul class="space-y-2">
+                    {tier.features.map((f) => (
+                      <li class="flex items-start gap-2 text-sm text-gray-700">
+                        <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
           </div>
 
-          <!-- Arrows -->
-          <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center text-primary hover:bg-cream transition-colors cursor-pointer">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          </button>
-          <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center text-primary hover:bg-cream transition-colors cursor-pointer">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </button>
+        </div>
+      </div>
+    </section>
 
-          <!-- Dots -->
-          <div class="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, i) => (
-              <button data-dot={i} class={`testimonial-dot w-2.5 h-2.5 rounded-full transition-colors cursor-pointer ${i === 0 ? 'bg-primary' : 'bg-gray-300'}`} />
+    <!-- Divider -->
+    <div class="bg-cream py-4 flex items-center justify-center gap-3">
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+      <div class="flex gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
+      </div>
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+    </div>
+
+    <!-- ─── TESTIMONIOS + FAQ + CTA (cream) ─── -->
+    <section class="bg-cream py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+
+        <!-- Testimonios carousel -->
+        <div class="mb-20">
+          <div class="text-center mb-10">
+            <span class="inline-block text-xs font-semibold tracking-[0.2em] text-[#556B2F] uppercase mb-3">Opiniones</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary">Lo que dicen nuestros clientes</h2>
+          </div>
+
+          <div class="relative max-w-3xl mx-auto">
+            <div class="overflow-hidden">
+              <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
+                {testimonials.map((t) => (
+                  <div class="min-w-full px-2">
+                    <div class="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm overflow-hidden">
+                      <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+                      <div class="flex gap-1 mb-4">
+                        {Array(5).fill(0).map(() => (
+                          <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        ))}
+                      </div>
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">"{t.text}"</p>
+                      <div class="flex items-center justify-between">
+                        <div>
+                          <p class="font-semibold text-primary">{t.name}</p>
+                          <p class="text-gray-500 text-sm">{t.company}</p>
+                        </div>
+                        <p class="text-gray-400 text-xs">{t.date}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center text-primary hover:bg-cream transition-colors cursor-pointer">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center text-primary hover:bg-cream transition-colors cursor-pointer">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+
+            <div class="flex justify-center gap-2 mt-6">
+              {testimonials.map((_, i) => (
+                <button data-dot={i} class={`testimonial-dot w-2.5 h-2.5 rounded-full transition-colors cursor-pointer ${i === 0 ? 'bg-primary' : 'bg-gray-300'}`} />
+              ))}
+            </div>
+          </div>
+
+          <script>
+            const track = document.getElementById('testimonials-track');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            const total = dots.length;
+            let current = 0;
+            let timer: ReturnType<typeof setInterval>;
+            function goTo(index: number) {
+              current = (index + total) % total;
+              if (track) track.style.transform = `translateX(-${current * 100}%)`;
+              dots.forEach((d, i) => { d.classList.toggle('bg-primary', i === current); d.classList.toggle('bg-gray-300', i !== current); });
+            }
+            function startAuto() { timer = setInterval(() => goTo(current + 1), 5000); }
+            function resetAuto() { clearInterval(timer); startAuto(); }
+            document.getElementById('prev-btn')?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+            document.getElementById('next-btn')?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+            dots.forEach(d => d.addEventListener('click', () => { goTo(Number(d.getAttribute('data-dot'))); resetAuto(); }));
+            startAuto();
+          </script>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-20 max-w-3xl mx-auto">
+          <div class="text-center mb-10">
+            <span class="inline-block text-xs font-semibold tracking-[0.2em] text-[#556B2F] uppercase mb-3">FAQ</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary">Preguntas Frecuentes</h2>
+          </div>
+
+          <div class="space-y-3">
+            {faq.map((item) => (
+              <details class="group relative bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+                <summary class="flex items-center justify-between px-8 py-5 font-semibold text-primary cursor-pointer list-none">
+                  {item.q}
+                  <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180 text-primary/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <p class="px-8 pb-5 text-gray-600 text-sm leading-relaxed">{item.a}</p>
+              </details>
             ))}
           </div>
         </div>
 
-        <script>
-          const track = document.getElementById('testimonials-track');
-          const dots = document.querySelectorAll('.testimonial-dot');
-          const total = dots.length;
-          let current = 0;
-          let timer: ReturnType<typeof setInterval>;
-
-          function goTo(index: number) {
-            current = (index + total) % total;
-            if (track) track.style.transform = `translateX(-${current * 100}%)`;
-            dots.forEach((d, i) => {
-              d.classList.toggle('bg-primary', i === current);
-              d.classList.toggle('bg-gray-300', i !== current);
-            });
-          }
-
-          function startAuto() {
-            timer = setInterval(() => goTo(current + 1), 5000);
-          }
-
-          function resetAuto() {
-            clearInterval(timer);
-            startAuto();
-          }
-
-          document.getElementById('prev-btn')?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
-          document.getElementById('next-btn')?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
-          dots.forEach(d => d.addEventListener('click', () => { goTo(Number(d.getAttribute('data-dot'))); resetAuto(); }));
-
-          startAuto();
-        </script>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-12 md:py-16 bg-cream">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-8 text-center">
-          Preguntas Frecuentes
-        </h2>
-
-        <div class="space-y-4">
-          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
-            <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
-              ¿Cuál es el horario de entrega?
-              <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-3 text-gray-700">
-              Realizamos entregas de lunes a viernes entre las 11:00 y 15:00 hs. Recomendamos pedir con al menos 24 hs de anticipación para garantizar tu lugar y evitar superposiciones con otros pedidos. Si necesitás pedir el mismo día, hacelo con un mínimo de 3 hs de antelación, sujeto a disponibilidad.
-            </p>
-          </details>
-
-          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
-            <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
-              ¿Cómo funciona el pedido mínimo?
-              <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-3 text-gray-700">
-              Trabajamos con empresas de cualquier tamaño. Según el volumen de tu pedido, evaluamos qué plan se ajusta mejor a tu equipo y te lo comunicamos sin compromiso.
-            </p>
-          </details>
-
-          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
-            <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
-              ¿Qué métodos de pago aceptan?
-              <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-3 text-gray-700">
-              Aceptamos transferencia bancaria, Mercado Pago y efectivo. Emitimos Factura C con todos los pedidos corporativos.
-            </p>
-          </details>
-
-          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
-            <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
-              ¿Tienen opciones vegetarianas?
-              <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="mt-3 text-gray-700">
-              Sí, contamos con opciones vegetarianas dentro de nuestro menú diario. Te recomendamos revisar nuestro <a href="/menu" class="text-primary underline font-medium">menú completo</a> para ver el detalle de los platos disponibles.
-            </p>
-          </details>
+        <!-- CTA final -->
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+            ¿Listo para alimentar a tu equipo?
+          </h2>
+          <p class="text-gray-600 mb-8 max-w-xl mx-auto">
+            Contactanos por WhatsApp y te armamos un presupuesto personalizado para tu empresa.
+          </p>
+          <a
+            href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa].%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-cream px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Solicitar Presupuesto
+          </a>
         </div>
+
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="bg-cream py-12 md:py-16">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl md:text-3xl font-serif font-bold mb-4 text-primary">
-          ¿Listo para alimentar a tu equipo?
-        </h2>
-        <p class="text-lg mb-6 text-primary/80 max-w-2xl mx-auto">
-          Contactanos por WhatsApp y te armamos un presupuesto personalizado para tu empresa
-        </p>
-        <Button
-          href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa].%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas.%20%C2%BFPodr%C3%ADan%20enviarme%20informaci%C3%B3n%20sobre%20precios%20y%20log%C3%ADstica%3F"
-          variant="primary"
-          size="lg"
-          class="inline-flex items-center gap-2"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Solicitar Presupuesto
-        </Button>
-      </div>
-    </section>
   </main>
 
   <Footer />
