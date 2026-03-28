@@ -16,7 +16,7 @@ const menu = menuData as MenuData;
 >
   <Navbar />
 
-  <main>
+  <main class="bg-cream">
     <!-- Hero Section -->
     <section class="bg-cream py-12 md:py-16 border-b-4 border-primary">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -29,27 +29,152 @@ const menu = menuData as MenuData;
       </div>
     </section>
 
-    <!-- Menu Categories -->
-    {menu.categories.map((category) => (
-      <section class="py-12 md:py-16" id={category.id}>
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <!-- Category Header -->
-          <div class="text-center mb-10">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-3">
-              {category.name}
-            </h2>
-            <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-          </div>
+    <!-- Menu with Sidebar Filters -->
+    <section class="py-12 md:py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Left Sidebar - Filters -->
+          <aside class="sticky top-20 z-40 -mx-4 sm:-mx-6 px-4 sm:px-6 w-screen bg-[#FDF5E6] lg:mx-0 lg:px-0 lg:w-52 lg:bg-transparent self-start flex-shrink-0 py-5 lg:py-0">
+            <div class="w-[92%] mx-auto lg:w-full lg:mx-2 space-y-1 lg:space-y-5 bg-white p-2 lg:p-6 rounded-lg shadow-md">
+              <!-- Category Filter -->
+              <div class="filter-section border-b lg:border-b-0 pb-2 lg:pb-4">
+                <button
+                  class="filter-header w-full flex items-center justify-between text-left text-sm lg:text-base font-semibold text-gray-800 mb-1 lg:mb-3 py-1 lg:py-1"
+                  data-filter="category"
+                >
+                  <span>Categoría</span>
+                  <svg class="filter-chevron w-5 h-5 transition-transform duration-200 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div class="filter-content hidden lg:block space-y-1.5">
+                  <button
+                    data-dish-type="todas"
+                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-primary text-cream text-sm"
+                  >
+                    Todas
+                  </button>
+                  <button
+                    data-dish-type="platos-principales"
+                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Platos Principales
+                  </button>
+                  <button
+                    data-dish-type="empanadas"
+                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Empanadas
+                  </button>
+                  <button
+                    data-dish-type="tartas-tortillas"
+                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Tartas y Tortillas
+                  </button>
+                  <button
+                    data-dish-type="ensaladas"
+                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Ensaladas
+                  </button>
+                  <button
+                    data-dish-type="acompanamientos"
+                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Acompañamientos
+                  </button>
+                </div>
+              </div>
 
-          <!-- Category Items Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {category.items.map((item) => (
-              <MenuCard item={item} />
-            ))}
+              <!-- Country Filter -->
+              <div class="filter-section border-b lg:border-b-0 pb-2 lg:pb-4">
+                <button
+                  class="filter-header w-full flex items-center justify-between text-left text-sm lg:text-base font-semibold text-gray-800 mb-1 lg:mb-3 py-1 lg:py-1"
+                  data-filter="country"
+                >
+                  <span>País</span>
+                  <svg class="filter-chevron w-5 h-5 transition-transform duration-200 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div class="filter-content hidden lg:block space-y-1.5">
+                  <button
+                    data-country="todos"
+                    class="country-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-primary text-cream text-sm"
+                  >
+                    Todos
+                  </button>
+                  <button
+                    data-country="peru"
+                    class="country-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Perú
+                  </button>
+                  <button
+                    data-country="argentina"
+                    class="country-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Argentina
+                  </button>
+                </div>
+              </div>
+
+              <!-- Vegetarian Filter -->
+              <div class="filter-section">
+                <button
+                  class="filter-header w-full flex items-center justify-between text-left text-sm lg:text-base font-semibold text-gray-800 mb-1 lg:mb-3 py-1 lg:py-1"
+                  data-filter="vegetarian"
+                >
+                  <span>Vegetariano</span>
+                  <svg class="filter-chevron w-5 h-5 transition-transform duration-200 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div class="filter-content hidden lg:block space-y-1.5">
+                  <button
+                    data-vegetarian="todos"
+                    class="vegetarian-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-primary text-cream text-sm"
+                  >
+                    Todos
+                  </button>
+                  <button
+                    data-vegetarian="si"
+                    class="vegetarian-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
+                  >
+                    Vegetariano
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right Content - Menu Grid -->
+          <div class="flex-1">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-fr" id="menu-grid">
+              {menu.categories.map((category) =>
+                category.items.map((item) => (
+                  <div
+                    class="menu-item"
+                    data-dish-type={item.dishType || 'otras'}
+                    data-is-vegetarian={item.isVegetarian ? 'true' : 'false'}
+                    data-country={category.id === 'especialidades-peruanas' ? 'peru' : 'argentina'}
+                  >
+                    <MenuCard item={item} />
+                  </div>
+                ))
+              )}
+            </div>
+
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-12">
+              <p class="text-xl text-gray-600">No se encontraron platos con los filtros seleccionados.</p>
+              <p class="text-gray-500 mt-2">Intentá cambiar los filtros para ver más opciones.</p>
+            </div>
           </div>
         </div>
-      </section>
-    ))}
+      </div>
+    </section>
 
     <!-- Call to Action -->
     <section class="bg-primary text-cream py-12">
@@ -77,4 +202,167 @@ const menu = menuData as MenuData;
 
   <Footer />
   <WhatsAppButton type="b2c" />
+
+  <script>
+    // Multi-filter system with collapsible sections
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter state
+      let activeDishType = 'todas';
+      let activeCountry = 'todos';
+      let activeVegetarian = 'todos';
+
+      // Get all filter buttons
+      const dishTypeButtons = document.querySelectorAll('.dish-type-btn');
+      const countryButtons = document.querySelectorAll('.country-btn');
+      const vegetarianButtons = document.querySelectorAll('.vegetarian-btn');
+
+      // Get menu items
+      const menuItems = document.querySelectorAll('.menu-item');
+      const noResults = document.getElementById('no-results');
+
+      // Collapsible filter sections (mobile only)
+      const filterHeaders = document.querySelectorAll('.filter-header');
+
+      filterHeaders.forEach(header => {
+        header.addEventListener('click', (e) => {
+          // Only toggle on mobile (below lg breakpoint)
+          if (window.innerWidth >= 1024) return;
+
+          const section = header.closest('.filter-section');
+          const content = section?.querySelector('.filter-content');
+          const chevron = header.querySelector('.filter-chevron');
+
+          if (content && chevron) {
+            const isHidden = content.classList.contains('hidden');
+
+            if (isHidden) {
+              content.classList.remove('hidden');
+              chevron.style.transform = 'rotate(180deg)';
+            } else {
+              content.classList.add('hidden');
+              chevron.style.transform = 'rotate(0deg)';
+            }
+          }
+        });
+      });
+
+      // Update button styles - removes hover on active button
+      function updateButtonStyles(buttons, activeValue, attribute) {
+        buttons.forEach(btn => {
+          const btnValue = btn.getAttribute(attribute);
+          if (btnValue === activeValue) {
+            // Active state - no hover effect
+            btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+            btn.classList.add('bg-primary', 'text-cream');
+          } else {
+            // Inactive state - with hover effect
+            btn.classList.remove('bg-primary', 'text-cream');
+            btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+          }
+        });
+      }
+
+      // Filter menu items based on all active filters
+      function filterMenu() {
+        let visibleCount = 0;
+
+        menuItems.forEach(item => {
+          const itemDishType = item.getAttribute('data-dish-type');
+          const itemCountry = item.getAttribute('data-country');
+          const itemVegetarian = item.getAttribute('data-is-vegetarian');
+
+          // Check dish type filter
+          const dishTypeMatch = activeDishType === 'todas' || itemDishType === activeDishType;
+
+          // Check country filter
+          const countryMatch = activeCountry === 'todos' || itemCountry === activeCountry;
+
+          // Check vegetarian filter
+          const vegetarianMatch = activeVegetarian === 'todos' ||
+            (activeVegetarian === 'si' && itemVegetarian === 'true');
+
+          // Show item only if all filters match
+          if (dishTypeMatch && countryMatch && vegetarianMatch) {
+            item.style.display = 'block';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults?.classList.remove('hidden');
+        } else {
+          noResults?.classList.add('hidden');
+        }
+      }
+
+      // Dish Type filter handler
+      dishTypeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const y = window.scrollY;
+          activeDishType = button.getAttribute('data-dish-type') || 'todas';
+          updateButtonStyles(dishTypeButtons, activeDishType, 'data-dish-type');
+          filterMenu();
+          window.scrollTo({ top: y, behavior: 'instant' });
+        });
+      });
+
+      // Country filter handler
+      countryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const y = window.scrollY;
+          activeCountry = button.getAttribute('data-country') || 'todos';
+          updateButtonStyles(countryButtons, activeCountry, 'data-country');
+          filterMenu();
+          window.scrollTo({ top: y, behavior: 'instant' });
+        });
+      });
+
+      // Vegetarian filter handler
+      vegetarianButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const y = window.scrollY;
+          activeVegetarian = button.getAttribute('data-vegetarian') || 'todos';
+          updateButtonStyles(vegetarianButtons, activeVegetarian, 'data-vegetarian');
+          filterMenu();
+          window.scrollTo({ top: y, behavior: 'instant' });
+        });
+      });
+
+      // Initial filter
+      filterMenu();
+    });
+  </script>
+
+  <script>
+    // Sticky filter centering on desktop
+    function centerStickyFilter() {
+      const aside = document.querySelector('aside');
+      if (!aside) return;
+
+      // Only apply on desktop (lg breakpoint = 1024px)
+      if (window.innerWidth < 1024) return;
+
+      const filterBox = aside.querySelector('div');
+      const navbarHeight = 96; // h-24 = 6rem = 96px
+      const viewportHeight = window.innerHeight;
+      const filterHeight = filterBox ? filterBox.offsetHeight : 200;
+
+      // Center the filter in the remaining viewport below navbar
+      const remainingHeight = viewportHeight - navbarHeight;
+      const centerTop = navbarHeight + (remainingHeight - filterHeight) / 2;
+
+      // Minimum top = navbar + 16px gap
+      const finalTop = Math.max(navbarHeight + 16, centerTop);
+      aside.style.top = finalTop + 'px';
+    }
+
+    // Run on load and resize
+    window.addEventListener('load', centerStickyFilter);
+    window.addEventListener('resize', centerStickyFilter);
+    // Also run immediately on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', centerStickyFilter);
+  </script>
 </Layout>

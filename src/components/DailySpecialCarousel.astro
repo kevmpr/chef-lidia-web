@@ -10,33 +10,36 @@ const dailySpecials = menu.categories
 ---
 
 {dailySpecials.length > 0 && (
-  <section class="bg-primary text-cream py-12 md:py-16 overflow-hidden">
+  <section class="bg-cream text-primary py-12 md:py-16 overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <h2 class="text-3xl md:text-4xl font-serif font-bold mb-3">
           Menú del Día
         </h2>
-        <p class="text-lg text-cream/90 max-w-2xl mx-auto">
+        <p class="text-lg text-primary/80 max-w-2xl mx-auto">
           Platos especiales preparados frescos cada día. Sabores auténticos de la cocina Peruana y Argentina.
         </p>
       </div>
 
       <!-- Carousel Container -->
-      <div class="relative max-w-5xl mx-auto">
-        <div class="carousel-wrapper">
-          <div class="carousel-track">
+      <div class="relative max-w-6xl mx-auto">
+        <div class="carousel-wrapper overflow-hidden">
+          <div class="carousel-track flex transition-transform duration-500 ease-in-out">
             {dailySpecials.map((item, index) => (
-              <div class="carousel-slide" data-slide={index}>
-                <div class="aspect-[4/3] md:aspect-[16/9] overflow-hidden rounded-xl shadow-2xl">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    class="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="text-center mt-4">
-                  <h3 class="text-2xl font-serif font-bold text-cream">{item.name}</h3>
+              <div class="carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-2" data-slide={index}>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full hover:shadow-xl transition-shadow">
+                  <div class="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="p-3 text-center">
+                    <h3 class="text-lg font-serif font-bold text-primary">{item.name}</h3>
+                    <p class="text-xs text-primary/70 mt-1 line-clamp-2">{item.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -44,21 +47,13 @@ const dailySpecials = menu.categories
         </div>
 
         <!-- Navigation Dots -->
-        <div class="flex justify-center gap-2 mt-6">
-          {dailySpecials.map((_, index) => (
-            <button
-              class="carousel-dot"
-              data-slide-to={index}
-              aria-label={`Ir al plato ${index + 1}`}
-            >
-              <span class="sr-only">Plato {index + 1}</span>
-            </button>
-          ))}
+        <div class="flex justify-center gap-2 mt-6" id="carousel-dots-container">
+          <!-- Dots will be generated dynamically by JavaScript based on screen size -->
         </div>
       </div>
 
       <div class="text-center mt-8">
-        <p class="text-cream/80 text-sm">
+        <p class="text-primary/70 text-sm">
           Consultá disponibilidad del día por WhatsApp
         </p>
       </div>
@@ -67,39 +62,11 @@ const dailySpecials = menu.categories
 )}
 
 <style>
-  .carousel-wrapper {
-    position: relative;
-    width: 100%;
-  }
-
-  .carousel-track {
-    display: flex;
-    position: relative;
-    width: 100%;
-  }
-
-  .carousel-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.8s ease-in-out;
-    pointer-events: none;
-  }
-
-  .carousel-slide.active {
-    opacity: 1;
-    position: relative;
-    pointer-events: auto;
-  }
-
   .carousel-dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(253, 245, 230, 0.3);
+    background-color: rgba(85, 107, 47, 0.3);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -107,45 +74,114 @@ const dailySpecials = menu.categories
   }
 
   .carousel-dot:hover {
-    background-color: rgba(253, 245, 230, 0.5);
+    background-color: rgba(85, 107, 47, 0.5);
     transform: scale(1.2);
   }
 
   .carousel-dot.active {
-    background-color: rgba(253, 245, 230, 0.9);
+    background-color: rgba(85, 107, 47, 0.9);
     width: 32px;
     border-radius: 6px;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 </style>
 
 <script>
   // Carousel functionality
   function initCarousel() {
+    const track = document.querySelector('.carousel-track') as HTMLElement;
     const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
-    let currentSlide = 0;
+    const dotsContainer = document.getElementById('carousel-dots-container');
+    let currentIndex = 0;
     let autoplayInterval: number;
+    let dots: NodeListOf<HTMLElement> | null = null;
 
-    if (slides.length === 0) return;
+    if (!track || slides.length === 0 || !dotsContainer) return;
 
-    function showSlide(index: number) {
-      // Remove active class from all slides and dots
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
+    // Determine number of visible slides based on screen size
+    function getVisibleSlides(): number {
+      const width = window.innerWidth;
+      if (width >= 1024) return 3; // lg: 3 slides
+      if (width >= 768) return 2;  // md: 2 slides
+      return 1; // mobile: 1 slide
+    }
 
-      // Add active class to current slide and dot
-      slides[index].classList.add('active');
-      dots[index].classList.add('active');
-      currentSlide = index;
+    // Generate navigation dots based on current screen size
+    function generateDots() {
+      const visibleSlides = getVisibleSlides();
+      const maxIndex = Math.max(0, slides.length - visibleSlides);
+      const numDots = maxIndex + 1; // Number of valid positions
+
+      // Clear existing dots
+      dotsContainer!.innerHTML = '';
+
+      // Create new dots
+      for (let i = 0; i <= maxIndex; i++) {
+        const button = document.createElement('button');
+        button.className = 'carousel-dot';
+        button.setAttribute('data-slide-to', i.toString());
+        button.setAttribute('aria-label', `Ir al plato ${i + 1}`);
+
+        const span = document.createElement('span');
+        span.className = 'sr-only';
+        span.textContent = `Plato ${i + 1}`;
+        button.appendChild(span);
+
+        button.addEventListener('click', () => {
+          stopAutoplay();
+          updateCarousel(i);
+          startAutoplay();
+        });
+
+        dotsContainer!.appendChild(button);
+      }
+
+      // Update dots reference
+      dots = dotsContainer!.querySelectorAll('.carousel-dot');
+    }
+
+    function updateCarousel(index: number) {
+      const visibleSlides = getVisibleSlides();
+      const maxIndex = Math.max(0, slides.length - visibleSlides);
+
+      // Clamp index to valid range
+      currentIndex = Math.max(0, Math.min(index, maxIndex));
+
+      // Calculate offset
+      const slideWidth = slides[0].clientWidth;
+      const offset = -currentIndex * slideWidth;
+      track.style.transform = `translateX(${offset}px)`;
+
+      // Update dots
+      if (dots) {
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
     }
 
     function nextSlide() {
-      const next = (currentSlide + 1) % slides.length;
-      showSlide(next);
+      const visibleSlides = getVisibleSlides();
+      const maxIndex = Math.max(0, slides.length - visibleSlides);
+
+      if (currentIndex >= maxIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex++;
+      }
+
+      updateCarousel(currentIndex);
     }
 
     function startAutoplay() {
-      autoplayInterval = window.setInterval(nextSlide, 5000);
+      stopAutoplay(); // Clear any existing interval
+      autoplayInterval = window.setInterval(nextSlide, 4500);
     }
 
     function stopAutoplay() {
@@ -154,17 +190,19 @@ const dailySpecials = menu.categories
       }
     }
 
-    // Add click handlers to dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        stopAutoplay();
-        showSlide(index);
-        startAutoplay();
-      });
+    // Handle window resize
+    let resizeTimeout: number;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        generateDots(); // Regenerate dots for new screen size
+        updateCarousel(currentIndex); // Update position
+      }, 250);
     });
 
     // Initialize
-    showSlide(0);
+    generateDots(); // Generate initial dots
+    updateCarousel(0);
     startAutoplay();
 
     // Pause on hover

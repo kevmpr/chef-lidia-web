@@ -1,140 +1,661 @@
 {
   "categories": [
     {
-      "id": "peruvian",
-      "name": "Cocina Peruana",
+      "id": "especialidades-peruanas",
+      "name": "Especialidades Peruanas",
       "items": [
+        {
+          "id": "arroz-chaufa-grande",
+          "name": "Arroz Chaufa Grande",
+          "description": "Arroz frito al estilo peruano-chino con pollo, cerdo, huevo y vegetales salteados al wok",
+          "price": 22000,
+          "allergens": ["gluten", "soy", "eggs"],
+          "isDailySpecial": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/arroz-chaufa-grande.jpg"
+        },
+        {
+          "id": "arroz-chaufa-mediano",
+          "name": "Arroz Chaufa Mediano",
+          "description": "Arroz frito al estilo peruano-chino con pollo, cerdo, huevo y vegetales salteados al wok",
+          "price": 20000,
+          "allergens": ["gluten", "soy", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/arroz-chaufa-mediano.jpg"
+        },
+        {
+          "id": "arroz-chaufa-especial",
+          "name": "Arroz Chaufa Especial",
+          "description": "Arroz chaufa premium con camarones, pollo, cerdo y vegetales selectos al wok",
+          "price": 24000,
+          "allergens": ["gluten", "soy", "eggs", "shellfish"],
+          "isDailySpecial": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/arroz-chaufa-especial.jpg"
+        },
+        {
+          "id": "arroz-chaufa-vegetariano",
+          "name": "Arroz Chaufa Vegetariano",
+          "description": "Arroz frito con vegetales frescos, huevo y salsa de soya al estilo oriental",
+          "price": 22000,
+          "allergens": ["gluten", "soy", "eggs"],
+          "isVegetarian": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/arroz-chaufa-vegetariano.jpg"
+        },
         {
           "id": "lomo-saltado",
           "name": "Lomo Saltado",
-          "description": "Tiras de lomo salteadas con cebolla, tomate y papas fritas, servido con arroz",
-          "price": 4500,
+          "description": "Tiras de lomo salteadas con cebolla, tomate, ají amarillo y papas fritas, servido con arroz",
+          "price": 23000,
           "allergens": ["gluten"],
           "isDailySpecial": true,
+          "dishType": "platos-principales",
           "image": "/assets/dishes/lomo-saltado.jpg"
         },
         {
-          "id": "aji-de-gallina",
-          "name": "Ají de Gallina",
-          "description": "Pollo desmenuzado en salsa cremosa de ají amarillo con nueces, servido con arroz y papa",
-          "price": 4200,
-          "allergens": ["dairy", "nuts"],
-          "image": "/assets/dishes/aji-de-gallina.jpg"
+          "id": "tallarin-saltado",
+          "name": "Tallarín Saltado",
+          "description": "Fideos salteados al wok con carne, pollo o verduras, cebolla, tomate y cebolla china",
+          "price": 23000,
+          "allergens": ["gluten", "soy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/tallarin-saltado.jpg"
         },
         {
-          "id": "ceviche-clasico",
-          "name": "Ceviche Clásico",
-          "description": "Pescado fresco marinado en limón, cebolla morada, ají limo y cilantro",
-          "price": 5000,
-          "allergens": ["shellfish"],
-          "image": "/assets/dishes/ceviche.jpg"
+          "id": "aeropuerto-de-pollo",
+          "name": "Aeropuerto de Pollo",
+          "description": "Combinación de arroz chaufa y tallarines saltados con pollo, el mejor de ambos mundos",
+          "price": 24000,
+          "allergens": ["gluten", "soy", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/aeropuerto-pollo.jpg"
         },
         {
-          "id": "causa-limena",
-          "name": "Causa Limeña",
-          "description": "Terrina de papa amarilla rellena con pollo, palta y mayonesa",
-          "price": 3800,
-          "allergens": ["eggs"],
-          "image": "/assets/dishes/causa.jpg"
+          "id": "mostrito",
+          "name": "Mostrito",
+          "description": "Plato contundente con arroz chaufa, lomo saltado y papas fritas, ideal para compartir",
+          "price": 26000,
+          "allergens": ["gluten", "soy", "eggs"],
+          "isDailySpecial": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/mostrito.jpg"
         },
         {
-          "id": "tallarines-verdes",
-          "name": "Tallarines Verdes",
-          "description": "Pasta con salsa de albahaca, espinaca y queso fresco, estilo peruano",
-          "price": 3500,
-          "allergens": ["gluten", "dairy"],
-          "image": "/assets/dishes/tallarines-verdes.jpg"
+          "id": "pollo-broaster",
+          "name": "Pollo Broaster",
+          "description": "Pollo crocante empanizado estilo broaster con papas fritas y ensalada fresca",
+          "price": 21000,
+          "allergens": ["gluten"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/pollo-broaster.jpg"
         },
         {
-          "id": "arroz-con-pollo",
-          "name": "Arroz con Pollo",
-          "description": "Arroz verde con pollo tierno, cilantro y vegetales",
-          "price": 4000,
-          "image": "/assets/dishes/arroz-con-pollo.jpg"
+          "id": "chicharron-de-pescado",
+          "name": "Chicharrón de Pescado",
+          "description": "Trozos de pescado fresco empanizados y fritos hasta quedar crujientes, con yucas y salsa criolla",
+          "price": 26000,
+          "allergens": ["gluten", "shellfish"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/chicharron-pescado.jpg"
         },
         {
-          "id": "papa-rellena",
-          "name": "Papa Rellena",
-          "description": "Papa rellena de carne picada, huevo duro, aceitunas y pasas, frita hasta dorar",
-          "price": 3200,
-          "allergens": ["gluten", "eggs"],
-          "image": "/assets/dishes/papa-rellena.jpg"
+          "id": "rabas-con-fritas",
+          "name": "Rabas con Fritas",
+          "description": "Aros de calamar rebozados y fritos servidos con papas fritas y salsa tártara",
+          "price": 26000,
+          "allergens": ["gluten", "shellfish", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/rabas-fritas.jpg"
         },
         {
-          "id": "anticuchos",
-          "name": "Anticuchos de Corazón",
-          "description": "Brochetas de corazón de res marinadas en ají panca, asadas a la parrilla",
-          "price": 4800,
-          "image": "/assets/dishes/anticuchos.jpg"
+          "id": "salchipapa-mediana",
+          "name": "Salchipapa Mediana",
+          "description": "Papas fritas con salchicha de huacho cortada en rodajas, acompañado de salsas",
+          "price": 15000,
+          "allergens": ["gluten"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/salchipapa-mediana.jpg"
+        },
+        {
+          "id": "salchipapa-grande",
+          "name": "Salchipapa Grande",
+          "description": "Papas fritas generosas con salchicha de huacho cortada en rodajas, ideal para compartir",
+          "price": 18000,
+          "allergens": ["gluten"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/salchipapa-grande.jpg"
+        },
+        {
+          "id": "salchipollo",
+          "name": "Salchipollo",
+          "description": "Combinación de pollo broaster y salchicha con papas fritas y ensalada fresca",
+          "price": 24000,
+          "allergens": ["gluten"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/salchipollo.jpg"
+        },
+        {
+          "id": "arroz-con-vegetales",
+          "name": "Arroz con Vegetales",
+          "description": "Arroz salteado con vegetales frescos de estación al wok con salsa de soya",
+          "price": 13000,
+          "allergens": ["soy"],
+          "isVegetarian": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/arroz-vegetales.jpg"
+        },
+        {
+          "id": "tallarines-con-vegetales",
+          "name": "Tallarines con Vegetales",
+          "description": "Fideos salteados al wok con vegetales frescos de estación y salsa de soya",
+          "price": 13000,
+          "allergens": ["gluten", "soy"],
+          "isVegetarian": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/tallarines-vegetales.jpg"
         }
       ]
     },
     {
-      "id": "argentine",
-      "name": "Cocina Argentina",
+      "id": "carnes-milanesas",
+      "name": "Carnes y Milanesas",
       "items": [
         {
-          "id": "milanesa-napolitana",
-          "name": "Milanesa Napolitana",
-          "description": "Milanesa de ternera cubierta con jamón, tomate y queso gratinado, con papas fritas",
-          "price": 4600,
-          "allergens": ["gluten", "dairy"],
-          "isDailySpecial": true,
-          "image": "/assets/dishes/milanesa-napolitana.jpg"
+          "id": "bife-con-guarnicion",
+          "name": "Bife con Guarnición",
+          "description": "Bife de chorizo jugoso a la parrilla con papas fritas, ensalada o puré",
+          "price": 15000,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/bife-guarnicion.jpg"
         },
         {
-          "id": "empanadas-carne",
-          "name": "Empanadas de Carne",
-          "description": "Empanadas criollas rellenas de carne picada a cuchillo, cebolla, huevo y aceitunas (3 unidades)",
-          "price": 2800,
+          "id": "grille-con-guarnicion",
+          "name": "Grille con Guarnición",
+          "description": "Pechuga de pollo grillé con tu elección de papas fritas, ensalada o puré",
+          "price": 13000,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/grille-guarnicion.jpg"
+        },
+        {
+          "id": "milanesa-de-carne-guarnicion",
+          "name": "Milanesa de Carne con Guarnición",
+          "description": "Milanesa de carne empanizada y dorada con papas fritas, ensalada o puré",
+          "price": 12000,
           "allergens": ["gluten", "eggs"],
-          "image": "/assets/dishes/empanadas.jpg"
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-carne-guarnicion.jpg"
         },
         {
-          "id": "bife-chorizo",
-          "name": "Bife de Chorizo",
-          "description": "Corte argentino de 300g a la parrilla, con ensalada mixta y papas",
-          "price": 5500,
-          "image": "/assets/dishes/bife-chorizo.jpg"
+          "id": "milanesa-de-pollo-guarnicion",
+          "name": "Milanesa de Pollo con Guarnición",
+          "description": "Milanesa de pollo empanizada y dorada con papas fritas, ensalada o puré",
+          "price": 12000,
+          "allergens": ["gluten", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-pollo-guarnicion.jpg"
         },
         {
-          "id": "choripan",
-          "name": "Choripán Completo",
-          "description": "Chorizo criollo a la parrilla en pan francés con chimichurri",
-          "price": 2500,
+          "id": "milanesa-de-berenjena-guarnicion",
+          "name": "Milanesa de Berenjena con Guarnición",
+          "description": "Rodajas de berenjena empanizadas y fritas con tu guarnición favorita",
+          "price": 13000,
+          "allergens": ["gluten", "eggs"],
+          "isVegetarian": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-berenjena-guarnicion.jpg"
+        },
+        {
+          "id": "milanesa-de-soja-guarnicion",
+          "name": "Milanesa de Soja con Guarnición",
+          "description": "Milanesa vegetal a base de soja empanizada con tu guarnición favorita",
+          "price": 13000,
+          "allergens": ["gluten", "eggs", "soy"],
+          "isVegetarian": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-soja-guarnicion.jpg"
+        },
+        {
+          "id": "milanesa-carne-caballo",
+          "name": "Milanesa de Carne a Caballo",
+          "description": "Milanesa de carne cubierta con dos huevos fritos y guarnición",
+          "price": 14000,
+          "allergens": ["gluten", "eggs"],
+          "isDailySpecial": true,
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-carne-caballo.jpg"
+        },
+        {
+          "id": "milanesa-carne-fugazzeta",
+          "name": "Milanesa de Carne Fugazzeta",
+          "description": "Milanesa de carne cubierta con cebolla caramelizada y queso mozzarella gratinado",
+          "price": 14000,
+          "allergens": ["gluten", "eggs", "dairy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-carne-fugazzeta.jpg"
+        },
+        {
+          "id": "milanesa-carne-napolitana",
+          "name": "Milanesa de Carne Napolitana",
+          "description": "Milanesa de carne cubierta con jamón, salsa de tomate y queso mozzarella gratinado",
+          "price": 14000,
+          "allergens": ["gluten", "eggs", "dairy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-carne-napolitana.jpg"
+        },
+        {
+          "id": "milanesa-pollo-caballo",
+          "name": "Milanesa de Pollo a Caballo",
+          "description": "Milanesa de pollo cubierta con dos huevos fritos y guarnición",
+          "price": 14000,
+          "allergens": ["gluten", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-pollo-caballo.jpg"
+        },
+        {
+          "id": "milanesa-pollo-fugazzeta",
+          "name": "Milanesa de Pollo Fugazzeta",
+          "description": "Milanesa de pollo cubierta con cebolla caramelizada y queso mozzarella gratinado",
+          "price": 14000,
+          "allergens": ["gluten", "eggs", "dairy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-pollo-fugazzeta.jpg"
+        },
+        {
+          "id": "milanesa-pollo-napolitana",
+          "name": "Milanesa de Pollo Napolitana",
+          "description": "Milanesa de pollo cubierta con jamón, salsa de tomate y queso mozzarella gratinado",
+          "price": 14000,
+          "allergens": ["gluten", "eggs", "dairy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/milanesa-pollo-napolitana.jpg"
+        }
+      ]
+    },
+    {
+      "id": "hamburguesas-sandwiches",
+      "name": "Hamburguesas y Sándwiches",
+      "items": [
+        {
+          "id": "hamburguesa-bm",
+          "name": "Hamburguesa BM con Fritas",
+          "description": "Hamburguesa de carne con lechuga, tomate, cebolla y papas fritas",
+          "price": 13000,
+          "allergens": ["gluten", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/hamburguesa-bm.jpg"
+        },
+        {
+          "id": "hamburguesa-cuarto",
+          "name": "Hamburguesa 1/4 con Fritas",
+          "description": "Hamburguesa de carne cuarto de libra con vegetales frescos y papas fritas",
+          "price": 13000,
+          "allergens": ["gluten", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/hamburguesa-cuarto.jpg"
+        },
+        {
+          "id": "hamburguesa-clasica",
+          "name": "Hamburguesa Clásica con Fritas",
+          "description": "Hamburguesa tradicional con queso, lechuga, tomate y papas fritas",
+          "price": 13000,
+          "allergens": ["gluten", "eggs", "dairy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/hamburguesa-clasica.jpg"
+        },
+        {
+          "id": "hamburguesa-de-la-casa",
+          "name": "Hamburguesa De la Casa con Fritas",
+          "description": "Hamburguesa especial con queso, bacon, huevo, cebolla caramelizada y papas fritas",
+          "price": 15000,
+          "allergens": ["gluten", "eggs", "dairy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/hamburguesa-casa.jpg"
+        },
+        {
+          "id": "sandwich-simple",
+          "name": "Sándwich Simple",
+          "description": "Sándwich de miga con jamón y queso, corte clásico",
+          "price": 9000,
+          "allergens": ["gluten", "dairy"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/sandwich-simple.jpg"
+        },
+        {
+          "id": "sandwich-completo",
+          "name": "Sándwich Completo",
+          "description": "Sándwich de miga completo con jamón, queso, tomate, lechuga y huevo",
+          "price": 11000,
+          "allergens": ["gluten", "dairy", "eggs"],
+          "dishType": "platos-principales",
+          "image": "/assets/dishes/sandwich-completo.jpg"
+        }
+      ]
+    },
+    {
+      "id": "empanadas",
+      "name": "Empanadas",
+      "items": [
+        {
+          "id": "empanada-carne",
+          "name": "Empanada de Carne",
+          "description": "Empanada criolla al horno rellena de carne picada a cuchillo con cebolla, huevo y aceitunas",
+          "price": 2000,
+          "allergens": ["gluten", "eggs"],
+          "dishType": "empanadas",
+          "image": "/assets/dishes/empanada-carne.jpg"
+        },
+        {
+          "id": "empanada-carne-frita",
+          "name": "Empanada de Carne Frita",
+          "description": "Empanada frita dorada y crocante rellena de carne picada a cuchillo",
+          "price": 2000,
+          "allergens": ["gluten", "eggs"],
+          "dishType": "empanadas",
+          "image": "/assets/dishes/empanada-carne-frita.jpg"
+        },
+        {
+          "id": "empanada-cebolla-queso",
+          "name": "Empanada de Cebolla y Queso",
+          "description": "Empanada al horno rellena de cebolla caramelizada y queso cremoso",
+          "price": 2000,
+          "allergens": ["gluten", "dairy"],
+          "isVegetarian": true,
+          "dishType": "empanadas",
+          "image": "/assets/dishes/empanada-cebolla-queso.jpg"
+        },
+        {
+          "id": "empanada-jamon-queso",
+          "name": "Empanada de Jamón y Queso",
+          "description": "Empanada al horno clásica rellena de jamón cocido y queso fundido",
+          "price": 2000,
+          "allergens": ["gluten", "dairy"],
+          "isVegetarian": true,
+          "dishType": "empanadas",
+          "image": "/assets/dishes/empanada-jamon-queso.jpg"
+        },
+        {
+          "id": "empanada-pollo",
+          "name": "Empanada de Pollo",
+          "description": "Empanada al horno rellena de pollo desmenuzado con vegetales",
+          "price": 2000,
           "allergens": ["gluten"],
-          "image": "/assets/dishes/choripan.jpg"
+          "dishType": "empanadas",
+          "image": "/assets/dishes/empanada-pollo.jpg"
         },
         {
-          "id": "locro",
-          "name": "Locro Criollo",
-          "description": "Guiso tradicional de maíz, porotos, zapallo y carne de cerdo, con queso de cabra",
-          "price": 4200,
+          "id": "empanada-puerro-jamon-queso",
+          "name": "Empanada de Puerro Jamón y Queso",
+          "description": "Empanada al horno con la combinación perfecta de puerro, jamón y queso",
+          "price": 2000,
+          "allergens": ["gluten", "dairy"],
+          "isVegetarian": true,
+          "dishType": "empanadas",
+          "image": "/assets/dishes/empanada-puerro.jpg"
+        },
+        {
+          "id": "empanada-verdura",
+          "name": "Empanada de Verdura",
+          "description": "Empanada al horno rellena de espinaca, acelga, cebolla y huevo",
+          "price": 2000,
+          "allergens": ["gluten", "eggs"],
+          "isVegetarian": true,
+          "dishType": "empanadas",
+          "image": "/assets/dishes/empanada-verdura.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tartas-tortillas",
+      "name": "Tartas y Tortillas",
+      "items": [
+        {
+          "id": "tarta-atun",
+          "name": "Tarta de Atún",
+          "description": "Tarta casera rellena de atún con cebolla, morrón y huevo en masa hojaldrada",
+          "price": 7000,
+          "allergens": ["gluten", "eggs", "shellfish"],
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tarta-atun.jpg"
+        },
+        {
+          "id": "tarta-calabaza",
+          "name": "Tarta de Calabaza",
+          "description": "Tarta casera de calabaza asada con cebolla caramelizada en masa hojaldrada",
+          "price": 7000,
+          "allergens": ["gluten", "eggs"],
+          "isVegetarian": true,
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tarta-calabaza.jpg"
+        },
+        {
+          "id": "tarta-jamon-queso",
+          "name": "Tarta de Jamón y Queso",
+          "description": "Tarta casera clásica de jamón y queso cremoso en masa hojaldrada",
+          "price": 7000,
+          "allergens": ["gluten", "eggs", "dairy"],
+          "isVegetarian": true,
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tarta-jamon-queso.jpg"
+        },
+        {
+          "id": "tarta-pollo",
+          "name": "Tarta de Pollo",
+          "description": "Tarta casera de pollo desmenuzado con vegetales en masa hojaldrada",
+          "price": 7000,
+          "allergens": ["gluten", "eggs"],
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tarta-pollo.jpg"
+        },
+        {
+          "id": "tarta-verdura",
+          "name": "Tarta de Verdura",
+          "description": "Tarta casera de espinaca, acelga y cebolla en masa hojaldrada",
+          "price": 7000,
+          "allergens": ["gluten", "eggs"],
+          "isVegetarian": true,
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tarta-verdura.jpg"
+        },
+        {
+          "id": "tarta-zapallito",
+          "name": "Tarta de Zapallito",
+          "description": "Tarta casera de zapallito italiano salteado con cebolla en masa hojaldrada",
+          "price": 7000,
+          "allergens": ["gluten", "eggs"],
+          "isVegetarian": true,
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tarta-zapallito.jpg"
+        },
+        {
+          "id": "tortilla-papa",
+          "name": "Tortilla de Papa",
+          "description": "Tortilla española de papa y cebolla jugosa y abundante, ideal para compartir",
+          "price": 10000,
+          "allergens": ["eggs"],
+          "isVegetarian": true,
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tortilla-papa.jpg"
+        },
+        {
+          "id": "tortilla-verdura",
+          "name": "Tortilla de Verdura",
+          "description": "Tortilla jugosa de espinaca, acelga, cebolla y huevo, ideal para compartir",
+          "price": 10000,
+          "allergens": ["eggs"],
+          "isVegetarian": true,
+          "dishType": "tartas-tortillas",
+          "image": "/assets/dishes/tortilla-verdura.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ensaladas",
+      "name": "Ensaladas",
+      "items": [
+        {
+          "id": "ensalada-mediana",
+          "name": "Ensalada Mediana",
+          "description": "Ensalada mixta con lechuga, tomate, zanahoria, cebolla y huevo",
+          "price": 9000,
+          "allergens": ["eggs"],
+          "isVegetarian": true,
+          "dishType": "ensaladas",
+          "image": "/assets/dishes/ensalada-mediana.jpg"
+        },
+        {
+          "id": "ensalada-grande",
+          "name": "Ensalada Grande",
+          "description": "Ensalada mixta generosa con lechuga, tomate, zanahoria, cebolla y huevo",
+          "price": 11000,
+          "allergens": ["eggs"],
+          "isVegetarian": true,
+          "dishType": "ensaladas",
+          "image": "/assets/dishes/ensalada-grande.jpg"
+        },
+        {
+          "id": "ensalada-pollo-mediana",
+          "name": "Ensalada + Pollo Mediana",
+          "description": "Ensalada mixta con pechuga de pollo grillé, lechuga, tomate, zanahoria y cebolla",
+          "price": 11000,
+          "allergens": ["eggs"],
+          "dishType": "ensaladas",
+          "image": "/assets/dishes/ensalada-pollo-mediana.jpg"
+        },
+        {
+          "id": "ensalada-pollo-grande",
+          "name": "Ensalada + Pollo Grande",
+          "description": "Ensalada mixta generosa con pechuga de pollo grillé, ideal para una comida completa",
+          "price": 13000,
+          "allergens": ["eggs"],
+          "dishType": "ensaladas",
+          "image": "/assets/dishes/ensalada-pollo-grande.jpg"
+        },
+        {
+          "id": "ensalada-atun-mediana",
+          "name": "Ensalada + Atún Mediana",
+          "description": "Ensalada mixta con atún al natural, lechuga, tomate, zanahoria y cebolla",
+          "price": 12000,
+          "allergens": ["eggs", "shellfish"],
+          "dishType": "ensaladas",
+          "image": "/assets/dishes/ensalada-atun-mediana.jpg"
+        },
+        {
+          "id": "ensalada-atun-grande",
+          "name": "Ensalada + Atún Grande",
+          "description": "Ensalada mixta generosa con atún al natural, ideal para una comida ligera y completa",
+          "price": 14000,
+          "allergens": ["eggs", "shellfish"],
+          "dishType": "ensaladas",
+          "image": "/assets/dishes/ensalada-atun-grande.jpg"
+        }
+      ]
+    },
+    {
+      "id": "acompanamientos",
+      "name": "Acompañamientos",
+      "items": [
+        {
+          "id": "papas-fritas-medianas",
+          "name": "Papas Fritas Medianas",
+          "description": "Papas fritas doradas y crocantes, ideales para acompañar cualquier plato",
+          "price": 9000,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-fritas-medianas.jpg"
+        },
+        {
+          "id": "papas-fritas-grandes",
+          "name": "Papas Fritas Grandes",
+          "description": "Papas fritas generosas doradas y crocantes, perfectas para compartir",
+          "price": 11000,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-fritas-grandes.jpg"
+        },
+        {
+          "id": "papas-fritas-cheddar-medianas",
+          "name": "Papas Fritas con Cheddar Medianas",
+          "description": "Papas fritas cubiertas con salsa cheddar cremosa y fundida",
+          "price": 11500,
           "allergens": ["dairy"],
-          "image": "/assets/dishes/locro.jpg"
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-cheddar-medianas.jpg"
         },
         {
-          "id": "matambre-pizza",
-          "name": "Matambre a la Pizza",
-          "description": "Matambre relleno gratinado con salsa, jamón, morrón y queso",
-          "price": 4800,
+          "id": "papas-fritas-cheddar-grandes",
+          "name": "Papas Fritas con Cheddar Grandes",
+          "description": "Papas fritas generosas cubiertas con abundante salsa cheddar cremosa",
+          "price": 13000,
           "allergens": ["dairy"],
-          "image": "/assets/dishes/matambre-pizza.jpg"
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-cheddar-grandes.jpg"
         },
         {
-          "id": "provoleta",
-          "name": "Provoleta a la Parrilla",
-          "description": "Queso provolone asado con orégano y ají molido, con pan casero",
-          "price": 3500,
-          "allergens": ["dairy", "gluten"],
-          "image": "/assets/dishes/provoleta.jpg"
+          "id": "papas-fritas-cheddar-bacon-medianas",
+          "name": "Papas Fritas con Cheddar y Bacon Medianas",
+          "description": "Papas fritas con salsa cheddar fundida y bacon crocante",
+          "price": 13000,
+          "allergens": ["dairy"],
+          "isDailySpecial": true,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-cheddar-bacon-medianas.jpg"
         },
         {
-          "id": "guiso-lentejas",
-          "name": "Guiso de Lentejas",
-          "description": "Guiso casero de lentejas con chorizo, panceta y vegetales",
-          "price": 3800,
-          "image": "/assets/dishes/guiso-lentejas.jpg"
+          "id": "papas-fritas-cheddar-bacon-grandes",
+          "name": "Papas Fritas con Cheddar y Bacon Grandes",
+          "description": "Papas fritas generosas con salsa cheddar fundida y bacon crocante",
+          "price": 15000,
+          "allergens": ["dairy"],
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-cheddar-bacon-grandes.jpg"
+        },
+        {
+          "id": "papas-fritas-provenzal-medianas",
+          "name": "Papas Fritas a la Provenzal Medianas",
+          "description": "Papas fritas condimentadas con ajo, perejil fresco y hierbas aromáticas",
+          "price": 10500,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-provenzal-medianas.jpg"
+        },
+        {
+          "id": "papas-fritas-provenzal-grandes",
+          "name": "Papas Fritas a la Provenzal Grandes",
+          "description": "Papas fritas generosas condimentadas con ajo, perejil fresco y hierbas aromáticas",
+          "price": 12500,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/papas-provenzal-grandes.jpg"
+        },
+        {
+          "id": "revuelto-gramajo",
+          "name": "Revuelto Gramajo",
+          "description": "Revuelto de papas fritas, jamón, arvejas y huevos, un clásico argentino",
+          "price": 15000,
+          "allergens": ["eggs", "dairy"],
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/revuelto-gramajo.jpg"
+        },
+        {
+          "id": "guarnicion-extra-chica",
+          "name": "Guarnición Extra Chica",
+          "description": "Porción extra de papas fritas, puré o ensalada para acompañar tu plato",
+          "price": 8000,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/guarnicion-extra-chica.jpg"
+        },
+        {
+          "id": "guarnicion-extra-mediana",
+          "name": "Guarnición Extra Mediana",
+          "description": "Porción extra mediana de papas fritas, puré o ensalada para acompañar tu plato",
+          "price": 9000,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/guarnicion-extra-mediana.jpg"
+        },
+        {
+          "id": "guarnicion-extra-grande",
+          "name": "Guarnición Extra Grande",
+          "description": "Porción extra grande de papas fritas, puré o ensalada, ideal para compartir",
+          "price": 11000,
+          "dishType": "acompanamientos",
+          "image": "/assets/dishes/guarnicion-extra-grande.jpg"
         }
       ]
     }

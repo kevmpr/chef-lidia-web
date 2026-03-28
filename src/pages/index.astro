@@ -13,38 +13,25 @@ import DailySpecialCarousel from '../components/DailySpecialCarousel.astro';
 >
   <Navbar />
 
-  <main>
+  <main class="bg-cream">
     <!-- Hero Section -->
-    <section class="relative bg-primary text-cream py-20 md:py-28 lg:py-32 overflow-hidden">
-      <!-- Decorative gradient overlay -->
-      <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/40 via-transparent to-primary-light/20"></div>
-
-      <!-- Decorative accent elements -->
-      <div class="absolute top-0 right-0 w-96 h-96 bg-cream/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-light/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section class="bg-cream py-20 md:py-28 lg:py-32">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl">
-          <!-- Small accent badge -->
-          <div class="inline-flex items-center gap-2 bg-cream/10 backdrop-blur-sm border border-cream/20 rounded-full px-4 py-2 mb-6">
-            <span class="w-2 h-2 bg-cream rounded-full animate-pulse"></span>
-            <span class="text-sm font-medium text-cream/90">Ingredientes Premium</span>
-          </div>
-
           <!-- Main headline -->
-          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold mb-6 leading-tight">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold mb-6 leading-tight text-primary">
             Excelencia Gastronómica<br/>
-            <span class="text-cream/90">para tu Empresa</span>
+            <span class="text-primary-dark">para tu Empresa</span>
           </h1>
 
           <!-- Subheadline -->
-          <p class="text-xl md:text-2xl lg:text-3xl mb-6 text-cream/95 font-light leading-relaxed max-w-3xl">
-            Especialidades peruanas y argentinas preparadas con ingredientes premium
+          <p class="text-xl md:text-2xl lg:text-3xl mb-6 text-gray-800 font-light leading-relaxed max-w-3xl">
+            Especialidades peruanas y argentinas preparadas con ingredientes de calidad
           </p>
 
           <!-- Value proposition -->
-          <p class="text-base md:text-lg mb-10 text-cream/80 leading-relaxed max-w-2xl">
-            Ofrecemos soluciones de catering profesional con factura C para empresas del Distrito Tecnológico, menú ejecutivo diario y servicio de delivery. Calidad garantizada en cada plato.
+          <p class="text-base md:text-lg mb-10 text-gray-700 leading-relaxed max-w-2xl">
+            Ofrecemos soluciones de catering profesional para empresas del Distrito Tecnológico, menú ejecutivo diario y servicio de delivery. Calidad garantizada en cada plato.
           </p>
 
           <!-- CTA Buttons -->
@@ -52,27 +39,27 @@ import DailySpecialCarousel from '../components/DailySpecialCarousel.astro';
             <Button href="/empresas" variant="secondary" size="lg" class="shadow-xl hover:shadow-2xl hover:scale-105">
               Soluciones Corporativas
             </Button>
-            <Button href="/menu" variant="primary" size="lg" class="border-2 border-cream hover:bg-primary-light shadow-lg hover:shadow-xl hover:scale-105">
+            <Button href="/menu" variant="primary" size="lg" class="border-2 border-primary hover:bg-primary-light shadow-lg hover:shadow-xl hover:scale-105">
               Ver Menú Completo
             </Button>
           </div>
 
           <!-- Trust indicators -->
-          <div class="flex flex-wrap gap-6 text-sm text-cream/70">
+          <div class="flex flex-wrap gap-6 text-sm text-gray-600">
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-cream" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span>Menú Ejecutivo Diario</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-cream" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span>Delivery en CABA</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-cream" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span>Catering Empresarial</span>
