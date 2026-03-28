@@ -10,47 +10,60 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 // Pricing tiers for corporate catering
 const pricingTiers = [
   {
-    range: '5-10 viandas',
-    discount: '10% OFF',
+    range: '5-15 viandas',
+    label: 'Menú Clásico',
     description: 'Ideal para equipos pequeños',
-    features: ['Menú variado', 'Entrega programada', 'Factura C incluida']
+    features: ['Menú variado', 'Entrega programada', 'Factura C incluida', 'Menú vegetariano incluido']
   },
   {
-    range: '11-20 viandas',
-    discount: '15% OFF',
+    range: '15-30 viandas',
+    label: 'Menú Especial',
     description: 'Perfecto para equipos medianos',
-    features: ['Menú variado', 'Entrega programada', 'Factura C incluida', 'Opciones vegetarianas']
+    features: ['Menú variado', 'Entrega programada', 'Factura C incluida', 'Menú vegetariano incluido', 'Priorización de pedidos']
   },
   {
-    range: '21+ viandas',
-    discount: 'Presupuesto personalizado',
-    description: 'Para grandes empresas',
-    features: ['Menú variado', 'Entrega programada', 'Factura C incluida', 'Opciones vegetarianas', 'Atención prioritaria']
+    range: '+30 viandas',
+    label: 'Menú Ejecutivo',
+    description: 'Para equipos grandes',
+    features: ['Menú variado', 'Entrega programada', 'Factura C incluida', 'Menú vegetariano incluido', 'Priorización de pedidos', 'Personalización de platos']
   }
 ];
 
-// Placeholder B2B testimonials
 const testimonials = [
   {
     name: 'María González',
-    company: 'TechHub Patricios',
+    company: 'Consultora RH Soluciones',
     rating: 5,
-    text: 'Llevamos 6 meses pidiendo viandas para el equipo. La calidad es excelente y la facturación sin problemas. ¡Muy recomendable!',
+    text: 'Llevamos 8 meses pidiendo viandas para todo el equipo. La calidad es excelente, la variedad no aburre y la facturación es impecable. Totalmente recomendable.',
     date: 'Marzo 2026'
   },
   {
     name: 'Carlos Martínez',
-    company: 'Estudio Creativo BA',
+    company: 'Constructora Del Sur',
     rating: 5,
-    text: 'La comida casera de Chef Lidia es lo que nuestro equipo necesitaba. Variedad, buen precio y entregas puntuales.',
+    text: 'Somos una empresa de construcción y necesitábamos algo práctico para los chicos en obra. Chef Lidia nos dio una solución a medida con entrega puntual y buena comida.',
     date: 'Febrero 2026'
+  },
+  {
+    name: 'Valeria Ríos',
+    company: 'Centro Médico Integral',
+    rating: 5,
+    text: 'El equipo de enfermería almuerza todos los días con Chef Lidia. Nos encanta la opción vegetariana y que siempre llegue a tiempo. Un servicio muy profesional.',
+    date: 'Enero 2026'
+  },
+  {
+    name: 'Sebastián Lara',
+    company: 'Agencia Dental Odontogroup',
+    rating: 5,
+    text: 'Empezamos con 10 viandas y ahora pedimos más de 25. La comida es rica, el trato es excelente y nunca tuvimos un problema con la Factura C.',
+    date: 'Diciembre 2025'
   }
 ];
 ---
 
 <Layout
-  title="Viandas Corporativas en Parque Patricios - Chef Lidia"
-  description="Servicio de viandas para empresas tech. Factura C, descuentos por volumen, entrega programada en Distrito Tecnológico. Comida casera peruana y argentina para tu equipo."
+  title="Viandas Corporativas para Empresas - Chef Lidia"
+  description="Servicio de viandas para empresas de todo rubro. Factura C, descuentos por volumen, entrega programada en Parque Patricios y zona. Comida casera peruana y argentina para tu equipo."
 >
   <!-- Structured Data for SEO -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -78,28 +91,22 @@ const testimonials = [
   <main class="bg-cream">
     <!-- Hero Section with Factura C Badge -->
     <section class="relative bg-cream py-16 md:py-24 overflow-hidden">
-      <!-- Factura C Badge - Prominent positioning -->
-      <div class="absolute top-4 right-4 md:top-6 md:right-6 z-10">
-        <Badge
-          text="Factura C Incluida"
-          class="text-base md:text-lg px-6 py-3 shadow-2xl animate-pulse"
-        />
-      </div>
+
 
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-0">
         <div class="max-w-3xl">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-primary">
-            Viandas para tu equipo tech
+            Viandas para tu equipo
           </h1>
           <p class="text-xl md:text-2xl mb-4 text-gray-800">
-            Comida casera de calidad para empresas del Distrito Tecnológico
+            Comida casera de calidad para empresas de todo rubro
           </p>
           <p class="text-lg mb-8 text-gray-700">
             Alimentá a tu equipo con lo mejor de la cocina Peruana y Argentina. Menús variados, entregas programadas y facturación sin complicaciones.
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
             <Button
-              href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa]%20en%20Parque%20Patricios.%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas.%20%C2%BFPodr%C3%ADan%20enviarme%20informaci%C3%B3n%20sobre%20precios%20y%20log%C3%ADstica%3F"
+              href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa].%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas.%20%C2%BFPodr%C3%ADan%20enviarme%20informaci%C3%B3n%20sobre%20precios%20y%20log%C3%ADstica%3F"
               variant="secondary"
               size="lg"
               class="inline-flex items-center gap-2"
@@ -114,80 +121,94 @@ const testimonials = [
       </div>
     </section>
 
-    <!-- Trust Indicators -->
-    <section class="py-12 md:py-16 bg-cream">
+    <!-- Trust Badges -->
+    <section class="py-14 md:py-20 bg-cream">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center mb-12">
+          <p class="text-sm font-semibold tracking-widest text-[#556B2F] uppercase mb-2">Por qué elegirnos</p>
+          <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-900">Servicio pensado para empresas</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
           <!-- Factura C -->
-          <div class="text-center">
-            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+          <div class="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+            <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+            <div class="p-8 pl-10">
+              <div class="w-16 h-16 rounded-2xl bg-[#556B2F]/10 flex items-center justify-center mb-6 group-hover:bg-[#556B2F]/20 transition-colors duration-300">
+                <svg class="w-9 h-9 text-[#556B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-serif font-bold text-gray-900 mb-2">Factura C</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Facturación incluida en cada pedido, sin cargos adicionales ni papeleo.</p>
             </div>
-            <h3 class="text-xl font-serif font-bold text-primary mb-2">Factura C</h3>
-            <p class="text-gray-600">Facturación incluida sin cargos adicionales</p>
           </div>
 
-          <!-- Distrito Tecnológico -->
-          <div class="text-center">
-            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+          <!-- Envíos -->
+          <div class="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+            <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+            <div class="p-8 pl-10">
+              <div class="w-16 h-16 rounded-2xl bg-[#556B2F]/10 flex items-center justify-center mb-6 group-hover:bg-[#556B2F]/20 transition-colors duration-300">
+                <svg class="w-9 h-9 text-[#556B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-serif font-bold text-gray-900 mb-2">Envíos Programados</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Entrega puntual de lunes a viernes. Coordinamos el horario que mejor le venga a tu equipo.</p>
             </div>
-            <h3 class="text-xl font-serif font-bold text-primary mb-2">Envíos al Distrito Tecnológico</h3>
-            <p class="text-gray-600">Entregas programadas en Parque Patricios y zona</p>
           </div>
 
-          <!-- Descuentos -->
-          <div class="text-center">
-            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+          <!-- Descuentos por Volumen -->
+          <div class="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+            <div class="absolute inset-y-0 left-0 w-1.5 bg-[#556B2F] rounded-l-2xl"></div>
+            <div class="p-8 pl-10">
+              <div class="w-16 h-16 rounded-2xl bg-[#556B2F]/10 flex items-center justify-center mb-6 group-hover:bg-[#556B2F]/20 transition-colors duration-300">
+                <svg class="w-9 h-9 text-[#556B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.7">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-serif font-bold text-gray-900 mb-2">Descuentos por Volumen</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Precios preferenciales para pedidos frecuentes. Consultá por tu tarifa.</p>
             </div>
-            <h3 class="text-xl font-serif font-bold text-primary mb-2">Descuentos por Volumen</h3>
-            <p class="text-gray-600">Hasta 15% OFF en pedidos grandes</p>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- Pricing Tiers -->
-    <section class="py-12 md:py-16 bg-white">
+    <section class="py-12 md:py-16 bg-cream">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10">
           <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-3">
             Planes Corporativos
           </h2>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Elegí el plan que mejor se adapte al tamaño de tu equipo
+            Elegí el plan que mejor se adapte al tamaño de tu equipo. A mayor volumen de pedido, mejores precios.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {pricingTiers.map((tier, index) => (
-            <div class={`bg-cream rounded-lg p-6 border-2 ${index === 1 ? 'border-primary shadow-xl scale-105' : 'border-gray-200'}`}>
+            <div class={`bg-white rounded-2xl p-6 border-2 ${index === 1 ? 'border-[#556B2F] shadow-xl scale-105' : 'border-gray-200 shadow-sm'}`}>
               {index === 1 && (
                 <div class="text-center mb-4">
-                  <span class="inline-block bg-primary text-cream px-3 py-1 rounded-full text-xs font-bold">
+                  <span class="inline-block bg-[#556B2F] text-[#FDF5E6] px-3 py-1 rounded-full text-xs font-bold tracking-wide">
                     MÁS POPULAR
                   </span>
                 </div>
               )}
-              <h3 class="text-2xl font-serif font-bold text-primary mb-2 text-center">
+              <h3 class="text-2xl font-serif font-bold text-primary mb-1 text-center">
                 {tier.range}
               </h3>
-              <p class="text-center text-gray-600 mb-4">{tier.description}</p>
+              <p class="text-center text-gray-500 text-sm mb-4">{tier.description}</p>
               <div class="text-center mb-6">
-                <p class="text-3xl font-bold text-primary-dark">{tier.discount}</p>
+                <p class="text-xl font-semibold text-[#556B2F]">{tier.label}</p>
               </div>
               <ul class="space-y-2 mb-6">
                 {tier.features.map((feature) => (
                   <li class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-5 h-5 text-[#556B2F] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
                     <span class="text-sm text-gray-700">{feature}</span>
@@ -209,23 +230,77 @@ const testimonials = [
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {testimonials.map((review) => (
-            <ReviewCard {...review} />
-          ))}
+        <!-- Testimonials Carousel -->
+        <div class="relative max-w-3xl mx-auto">
+          <div class="overflow-hidden">
+            <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
+              {testimonials.map((review) => (
+                <div class="min-w-full px-2">
+                  <ReviewCard {...review} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Arrows -->
+          <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center text-primary hover:bg-cream transition-colors cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center text-primary hover:bg-cream transition-colors cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-6">
+            {testimonials.map((_, i) => (
+              <button data-dot={i} class={`testimonial-dot w-2.5 h-2.5 rounded-full transition-colors cursor-pointer ${i === 0 ? 'bg-primary' : 'bg-gray-300'}`} />
+            ))}
+          </div>
         </div>
+
+        <script>
+          const track = document.getElementById('testimonials-track');
+          const dots = document.querySelectorAll('.testimonial-dot');
+          const total = dots.length;
+          let current = 0;
+          let timer: ReturnType<typeof setInterval>;
+
+          function goTo(index: number) {
+            current = (index + total) % total;
+            if (track) track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, i) => {
+              d.classList.toggle('bg-primary', i === current);
+              d.classList.toggle('bg-gray-300', i !== current);
+            });
+          }
+
+          function startAuto() {
+            timer = setInterval(() => goTo(current + 1), 5000);
+          }
+
+          function resetAuto() {
+            clearInterval(timer);
+            startAuto();
+          }
+
+          document.getElementById('prev-btn')?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+          document.getElementById('next-btn')?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+          dots.forEach(d => d.addEventListener('click', () => { goTo(Number(d.getAttribute('data-dot'))); resetAuto(); }));
+
+          startAuto();
+        </script>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-12 md:py-16 bg-white">
+    <section class="py-12 md:py-16 bg-cream">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
         <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-8 text-center">
           Preguntas Frecuentes
         </h2>
 
         <div class="space-y-4">
-          <details class="bg-cream p-6 rounded-lg group">
+          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
             <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
               ¿Cuál es el horario de entrega?
               <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -233,11 +308,11 @@ const testimonials = [
               </svg>
             </summary>
             <p class="mt-3 text-gray-700">
-              Realizamos entregas de lunes a viernes entre las 11:00 y 14:00 hs. Podés programar tu pedido con 24hs de anticipación.
+              Realizamos entregas de lunes a viernes entre las 11:00 y 15:00 hs. Recomendamos pedir con al menos 24 hs de anticipación para garantizar tu lugar y evitar superposiciones con otros pedidos. Si necesitás pedir el mismo día, hacelo con un mínimo de 3 hs de antelación, sujeto a disponibilidad.
             </p>
           </details>
 
-          <details class="bg-cream p-6 rounded-lg group">
+          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
             <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
               ¿Cómo funciona el pedido mínimo?
               <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,11 +320,11 @@ const testimonials = [
               </svg>
             </summary>
             <p class="mt-3 text-gray-700">
-              El pedido mínimo para empresas es de 5 viandas. A partir de ese número aplicamos descuentos progresivos.
+              Trabajamos con empresas de cualquier tamaño. Según el volumen de tu pedido, evaluamos qué plan se ajusta mejor a tu equipo y te lo comunicamos sin compromiso.
             </p>
           </details>
 
-          <details class="bg-cream p-6 rounded-lg group">
+          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
             <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
               ¿Qué métodos de pago aceptan?
               <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -257,11 +332,11 @@ const testimonials = [
               </svg>
             </summary>
             <p class="mt-3 text-gray-700">
-              Aceptamos transferencia bancaria y Mercado Pago. Emitimos Factura C con todos los pedidos corporativos.
+              Aceptamos transferencia bancaria, Mercado Pago y efectivo. Emitimos Factura C con todos los pedidos corporativos.
             </p>
           </details>
 
-          <details class="bg-cream p-6 rounded-lg group">
+          <details class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm group">
             <summary class="font-semibold text-lg text-primary cursor-pointer list-none flex items-center justify-between">
               ¿Tienen opciones vegetarianas?
               <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -269,7 +344,7 @@ const testimonials = [
               </svg>
             </summary>
             <p class="mt-3 text-gray-700">
-              Sí, contamos con opciones vegetarianas como tallarines verdes, causa limeña, y ensaladas. Consultá el menú completo al solicitar presupuesto.
+              Sí, contamos con opciones vegetarianas dentro de nuestro menú diario. Te recomendamos revisar nuestro <a href="/menu" class="text-primary underline font-medium">menú completo</a> para ver el detalle de los platos disponibles.
             </p>
           </details>
         </div>
@@ -286,7 +361,7 @@ const testimonials = [
           Contactanos por WhatsApp y te armamos un presupuesto personalizado para tu empresa
         </p>
         <Button
-          href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa]%20en%20Parque%20Patricios.%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas.%20%C2%BFPodr%C3%ADan%20enviarme%20informaci%C3%B3n%20sobre%20precios%20y%20log%C3%ADstica%3F"
+          href="https://wa.me/5491128240324?text=Hola!%20Soy%20de%20[Empresa].%20Me%20interesa%20el%20servicio%20de%20viandas%20corporativas.%20%C2%BFPodr%C3%ADan%20enviarme%20informaci%C3%B3n%20sobre%20precios%20y%20log%C3%ADstica%3F"
           variant="secondary"
           size="lg"
           class="inline-flex items-center gap-2"
