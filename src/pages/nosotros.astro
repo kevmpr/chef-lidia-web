@@ -16,7 +16,7 @@ import chefLidia from '../assets/chef-lidia.png';
   <main>
 
     <!-- Hero Full-Width Photo -->
-    <section class="relative w-full h-[85vh] min-h-[520px] overflow-hidden">
+    <section class="relative w-full h-[calc(100vh-6rem)] min-h-[500px] overflow-hidden">
       <Image
         src={chefLidia}
         alt="Chef Lidia"
@@ -25,16 +25,19 @@ import chefLidia from '../assets/chef-lidia.png';
         class="absolute inset-0 w-full h-full object-cover object-center"
         loading="eager"
       />
-      <!-- Gradient overlay: subtle top (navbar area) + strong bottom (text area) -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80"></div>
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/85"></div>
 
       <!-- Text anchored to the bottom of the photo -->
-      <div class="absolute bottom-0 left-0 right-0 px-6 pb-12 md:pb-16 lg:pb-20">
+      <div class="absolute bottom-0 left-0 right-0 px-6 pb-14 md:pb-20 lg:pb-24">
         <div class="container mx-auto max-w-4xl">
           <span class="inline-block text-sm font-semibold tracking-widest text-cream/70 uppercase mb-4">Quiénes somos</span>
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight mb-4">
             Nuestra Historia
           </h1>
+          <p class="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed">
+            De un sueño a un local propio. Cada plato que servimos lleva años de historia detrás.
+          </p>
         </div>
       </div>
     </section>
