@@ -4,9 +4,11 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import MenuCard from '../components/MenuCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import menuBg from '../assets/menu.png';
 import menuData from '../data/menu.json';
 import type { MenuData } from '../types/menu';
-import type { ImageMetadata } from 'astro';
 
 const menu = menuData as MenuData;
 
@@ -21,146 +23,144 @@ function getDishImage(imagePath: string | null | undefined): ImageMetadata | nul
 
 <Layout
   title="Menú - Chef Lidia y Familia | Cocina Peruana y Argentina"
-  description="Explorá nuestro menú de comida casera peruana y argentina. Lomo saltado, milanesas, ceviches, empanadas y mucho más. Delivery y takeaway en Parque Patricios."
+  description="Todo el menú de Chef Lidia y Familia: especialidades peruanas como lomo saltado, arroz chaufa y tallarín saltado, junto a clásicos argentinos. Filtrá por categoría, país o preferencia vegetariana."
 >
   <Navbar />
 
-  <main class="bg-cream">
-    <!-- Hero Section -->
-    <section class="bg-cream py-12 md:py-16 border-b-4 border-primary">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
-          Nuestro Menú
-        </h1>
-        <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-          Descubrí los auténticos sabores de Perú y Argentina. Todos nuestros platos son preparados con ingredientes frescos y recetas tradicionales.
-        </p>
+  <!-- Fixed background -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <Image
+      src={menuBg}
+      alt="Menú Chef Lidia"
+      width={1920}
+      height={1080}
+      class="w-full h-full object-cover object-center blur-sm scale-110"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-stone-900/70"></div>
+  </div>
+
+  <main>
+
+    <!-- Hero compacto -->
+    <section class="relative flex flex-col justify-end h-[38vh] min-h-[260px]">
+      <div class="px-6 pb-10 md:pb-14">
+        <div class="container mx-auto max-w-5xl">
+          <span class="inline-block text-xs font-semibold tracking-[0.2em] text-white/50 uppercase mb-4">Lo que cocinamos</span>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-3">
+            Nuestro Menú
+          </h1>
+          <p class="text-lg text-white/70 max-w-xl leading-relaxed">
+            Cocina peruana y argentina preparada con recetas de siempre.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Menu with Sidebar Filters -->
-    <section class="py-12 md:py-16">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Divider -->
+    <div class="bg-cream py-4 flex items-center justify-center gap-3">
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+      <div class="flex gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
+      </div>
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+    </div>
+
+    <!-- Filtro mobile: fixed bajo el navbar, colapsable por grupo -->
+    <div class="lg:hidden sticky top-20 md:top-24 left-0 right-0 z-40 bg-cream shadow-md">
+      <!-- Fila de grupos — scrolleable horizontal -->
+      <div class="flex items-stretch border-b border-primary/10">
+        <!-- Icono filtro fijo -->
+        <div class="flex items-center px-4 border-r border-primary/10 text-primary/50 flex-shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18M7 10h10M10 16h4"/>
+          </svg>
+        </div>
+        <!-- Grupos arrastrables -->
+        <div class="overflow-x-auto scrollbar-hide flex-1">
+          <div class="flex w-max">
+            <button data-mob-group="cat" class="mob-group-btn whitespace-nowrap py-3.5 px-6 text-xs font-semibold tracking-widest uppercase text-primary/60 hover:text-primary transition-colors">
+              Categoría
+            </button>
+            <button data-mob-group="country" class="mob-group-btn whitespace-nowrap py-3.5 px-6 text-xs font-semibold tracking-widest uppercase text-primary/60 hover:text-primary transition-colors border-x border-primary/10">
+              País
+            </button>
+            <button data-mob-group="veg" class="mob-group-btn whitespace-nowrap py-3.5 px-6 text-xs font-semibold tracking-widest uppercase text-primary/60 hover:text-primary transition-colors">
+              Vegetariano
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opciones — ocultas por defecto, se muestran al tocar un grupo -->
+      <div id="mob-opts-cat" class="mob-opts hidden overflow-x-auto scrollbar-hide px-4 py-3 flex gap-2 border-t border-primary/10 bg-cream/95">
+        <button data-dish-type="todas"            class="dish-type-btn mob-filter-btn mob-active whitespace-nowrap">Todas</button>
+        <button data-dish-type="platos-principales" class="dish-type-btn mob-filter-btn whitespace-nowrap">Platos Principales</button>
+        <button data-dish-type="empanadas"        class="dish-type-btn mob-filter-btn whitespace-nowrap">Empanadas</button>
+        <button data-dish-type="tartas-tortillas" class="dish-type-btn mob-filter-btn whitespace-nowrap">Tartas y Tortillas</button>
+        <button data-dish-type="ensaladas"        class="dish-type-btn mob-filter-btn whitespace-nowrap">Ensaladas</button>
+        <button data-dish-type="acompanamientos"  class="dish-type-btn mob-filter-btn whitespace-nowrap">Acompañamientos</button>
+      </div>
+      <div id="mob-opts-country" class="mob-opts hidden overflow-x-auto scrollbar-hide px-4 py-3 flex gap-2 border-t border-primary/10 bg-cream/95">
+        <button data-country="todos"     class="country-btn mob-filter-btn mob-active whitespace-nowrap">Todos</button>
+        <button data-country="peru"      class="country-btn mob-filter-btn whitespace-nowrap">Perú</button>
+        <button data-country="argentina" class="country-btn mob-filter-btn whitespace-nowrap">Argentina</button>
+      </div>
+      <div id="mob-opts-veg" class="mob-opts hidden overflow-x-auto scrollbar-hide px-4 py-3 flex gap-2 border-t border-primary/10 bg-cream/95">
+        <button data-vegetarian="todos" class="vegetarian-btn mob-filter-btn mob-active whitespace-nowrap">Todos</button>
+        <button data-vegetarian="si"    class="vegetarian-btn mob-filter-btn whitespace-nowrap">Vegetariano</button>
+      </div>
+    </div>
+
+
+    <!-- Filtros + Grilla -->
+    <section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
         <div class="flex flex-col lg:flex-row gap-8">
-          <!-- Left Sidebar - Filters -->
-          <aside class="sticky top-20 z-40 -mx-4 sm:-mx-6 px-4 sm:px-6 w-screen bg-[#FDF5E6] lg:mx-0 lg:px-0 lg:w-52 lg:bg-transparent self-start flex-shrink-0 py-5 lg:py-0">
-            <div class="w-[92%] mx-auto lg:w-full lg:mx-2 space-y-1 lg:space-y-5 bg-white p-2 lg:p-6 rounded-lg shadow-md">
-              <!-- Category Filter -->
-              <div class="filter-section border-b lg:border-b-0 pb-2 lg:pb-4">
-                <button
-                  class="filter-header w-full flex items-center justify-between text-left text-sm lg:text-base font-semibold text-gray-800 mb-1 lg:mb-3 py-1 lg:py-1"
-                  data-filter="category"
-                >
-                  <span>Categoría</span>
-                  <svg class="filter-chevron w-5 h-5 transition-transform duration-200 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div class="filter-content hidden lg:block space-y-1.5">
-                  <button
-                    data-dish-type="todas"
-                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-primary text-cream text-sm"
-                  >
-                    Todas
-                  </button>
-                  <button
-                    data-dish-type="platos-principales"
-                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Platos Principales
-                  </button>
-                  <button
-                    data-dish-type="empanadas"
-                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Empanadas
-                  </button>
-                  <button
-                    data-dish-type="tartas-tortillas"
-                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Tartas y Tortillas
-                  </button>
-                  <button
-                    data-dish-type="ensaladas"
-                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Ensaladas
-                  </button>
-                  <button
-                    data-dish-type="acompanamientos"
-                    class="dish-type-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Acompañamientos
-                  </button>
+
+          <!-- Sidebar filtros -->
+          <aside id="filter-aside" class="hidden lg:flex sticky top-24 z-40 flex-shrink-0 w-52 h-[calc(100vh-6rem)] items-start">
+            <div class="bg-cream/90 rounded-2xl p-7 space-y-8 border-l-[6px] border-[#556B2F] w-full">
+
+              <!-- Categoría -->
+              <div>
+                <p class="text-xs font-semibold tracking-[0.2em] text-primary/60 uppercase mb-4">Categoría</p>
+                <div class="space-y-2">
+                  <button data-dish-type="todas"       class="dish-type-btn filter-btn active-filter w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Todas</button>
+                  <button data-dish-type="platos-principales" class="dish-type-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Platos Principales</button>
+                  <button data-dish-type="empanadas"   class="dish-type-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Empanadas</button>
+                  <button data-dish-type="tartas-tortillas" class="dish-type-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Tartas y Tortillas</button>
+                  <button data-dish-type="ensaladas"   class="dish-type-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Ensaladas</button>
+                  <button data-dish-type="acompanamientos" class="dish-type-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Acompañamientos</button>
                 </div>
               </div>
 
-              <!-- Country Filter -->
-              <div class="filter-section border-b lg:border-b-0 pb-2 lg:pb-4">
-                <button
-                  class="filter-header w-full flex items-center justify-between text-left text-sm lg:text-base font-semibold text-gray-800 mb-1 lg:mb-3 py-1 lg:py-1"
-                  data-filter="country"
-                >
-                  <span>País</span>
-                  <svg class="filter-chevron w-5 h-5 transition-transform duration-200 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div class="filter-content hidden lg:block space-y-1.5">
-                  <button
-                    data-country="todos"
-                    class="country-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-primary text-cream text-sm"
-                  >
-                    Todos
-                  </button>
-                  <button
-                    data-country="peru"
-                    class="country-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Perú
-                  </button>
-                  <button
-                    data-country="argentina"
-                    class="country-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Argentina
-                  </button>
+              <!-- País -->
+              <div>
+                <p class="text-xs font-semibold tracking-[0.2em] text-primary/60 uppercase mb-4">País</p>
+                <div class="space-y-2">
+                  <button data-country="todos"     class="country-btn filter-btn active-filter w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Todos</button>
+                  <button data-country="peru"      class="country-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Perú</button>
+                  <button data-country="argentina" class="country-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Argentina</button>
                 </div>
               </div>
 
-              <!-- Vegetarian Filter -->
-              <div class="filter-section">
-                <button
-                  class="filter-header w-full flex items-center justify-between text-left text-sm lg:text-base font-semibold text-gray-800 mb-1 lg:mb-3 py-1 lg:py-1"
-                  data-filter="vegetarian"
-                >
-                  <span>Vegetariano</span>
-                  <svg class="filter-chevron w-5 h-5 transition-transform duration-200 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div class="filter-content hidden lg:block space-y-1.5">
-                  <button
-                    data-vegetarian="todos"
-                    class="vegetarian-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-primary text-cream text-sm"
-                  >
-                    Todos
-                  </button>
-                  <button
-                    data-vegetarian="si"
-                    class="vegetarian-btn w-full text-left px-3 py-1.5 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300 text-sm"
-                  >
-                    Vegetariano
-                  </button>
+              <!-- Vegetariano -->
+              <div>
+                <p class="text-xs font-semibold tracking-[0.2em] text-primary/60 uppercase mb-4">Vegetariano</p>
+                <div class="space-y-2">
+                  <button data-vegetarian="todos" class="vegetarian-btn filter-btn active-filter w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Todos</button>
+                  <button data-vegetarian="si"    class="vegetarian-btn filter-btn w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200">Vegetariano</button>
                 </div>
               </div>
             </div>
           </aside>
 
-          <!-- Right Content - Menu Grid -->
+          <!-- Grilla de platos -->
           <div class="flex-1">
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-fr" id="menu-grid">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="menu-grid">
               {menu.categories.map((category) =>
                 category.items.map((item) => (
                   <div
@@ -175,203 +175,176 @@ function getDishImage(imagePath: string | null | undefined): ImageMetadata | nul
               )}
             </div>
 
-            <!-- No Results Message -->
             <div id="no-results" class="hidden text-center py-12">
-              <p class="text-xl text-gray-600">No se encontraron platos con los filtros seleccionados.</p>
-              <p class="text-gray-500 mt-2">Intentá cambiar los filtros para ver más opciones.</p>
+              <p class="text-lg text-white/70">No hay platos con esos filtros.</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="bg-cream py-12">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl md:text-3xl font-serif font-bold mb-4 text-primary">
-          ¿Listo para probar nuestros platos?
-        </h2>
-        <p class="text-lg mb-6 text-primary/80">
-          Consultá disponibilidad y hacé tu pedido por WhatsApp
-        </p>
-        <a
-          href="https://wa.me/5491128240324?text=Hola%20Lidia!%20Vi%20el%20men%C3%BA%20en%20la%20web%20y%20me%20gustar%C3%ADa%20hacer%20un%20pedido"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-cream px-8 py-4 rounded-lg text-lg font-medium transition-all shadow-lg hover:shadow-xl"
-        >
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Hacer Pedido
-        </a>
-      </div>
-    </section>
   </main>
 
   <Footer />
   <WhatsAppButton type="b2c" />
 
   <script>
-    // Multi-filter system with collapsible sections
+    // Mobile filter group toggle
     document.addEventListener('DOMContentLoaded', () => {
-      // Filter state
-      let activeDishType = 'todas';
-      let activeCountry = 'todos';
-      let activeVegetarian = 'todos';
+      const groupBtns = document.querySelectorAll('.mob-group-btn');
+      const allOpts = document.querySelectorAll('.mob-opts');
 
-      // Get all filter buttons
-      const dishTypeButtons = document.querySelectorAll('.dish-type-btn');
-      const countryButtons = document.querySelectorAll('.country-btn');
-      const vegetarianButtons = document.querySelectorAll('.vegetarian-btn');
+      groupBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const group = btn.getAttribute('data-mob-group');
+          const target = document.getElementById(`mob-opts-${group}`);
+          const isOpen = !target?.classList.contains('hidden');
 
-      // Get menu items
-      const menuItems = document.querySelectorAll('.menu-item');
-      const noResults = document.getElementById('no-results');
+          // Close all
+          allOpts.forEach(o => o.classList.add('hidden'));
+          groupBtns.forEach(b => b.classList.remove('mob-group-active'));
 
-      // Collapsible filter sections (mobile only)
-      const filterHeaders = document.querySelectorAll('.filter-header');
-
-      filterHeaders.forEach(header => {
-        header.addEventListener('click', (e) => {
-          // Only toggle on mobile (below lg breakpoint)
-          if (window.innerWidth >= 1024) return;
-
-          const section = header.closest('.filter-section');
-          const content = section?.querySelector('.filter-content');
-          const chevron = header.querySelector('.filter-chevron');
-
-          if (content && chevron) {
-            const isHidden = content.classList.contains('hidden');
-
-            if (isHidden) {
-              content.classList.remove('hidden');
-              chevron.style.transform = 'rotate(180deg)';
-            } else {
-              content.classList.add('hidden');
-              chevron.style.transform = 'rotate(0deg)';
-            }
+          // Toggle this one
+          if (!isOpen && target) {
+            target.classList.remove('hidden');
+            btn.classList.add('mob-group-active');
           }
         });
       });
 
-      // Update button styles - removes hover on active button
-      function updateButtonStyles(buttons, activeValue, attribute) {
-        buttons.forEach(btn => {
-          const btnValue = btn.getAttribute(attribute);
-          if (btnValue === activeValue) {
-            // Active state - no hover effect
-            btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-            btn.classList.add('bg-primary', 'text-cream');
-          } else {
-            // Inactive state - with hover effect
-            btn.classList.remove('bg-primary', 'text-cream');
-            btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-          }
-        });
-      }
-
-      // Filter menu items based on all active filters
-      function filterMenu() {
-        let visibleCount = 0;
-
-        menuItems.forEach(item => {
-          const itemDishType = item.getAttribute('data-dish-type');
-          const itemCountry = item.getAttribute('data-country');
-          const itemVegetarian = item.getAttribute('data-is-vegetarian');
-
-          // Check dish type filter
-          const dishTypeMatch = activeDishType === 'todas' || itemDishType === activeDishType;
-
-          // Check country filter
-          const countryMatch = activeCountry === 'todos' || itemCountry === activeCountry;
-
-          // Check vegetarian filter
-          const vegetarianMatch = activeVegetarian === 'todos' ||
-            (activeVegetarian === 'si' && itemVegetarian === 'true');
-
-          // Show item only if all filters match
-          if (dishTypeMatch && countryMatch && vegetarianMatch) {
-            item.style.display = 'block';
-            visibleCount++;
-          } else {
-            item.style.display = 'none';
-          }
-        });
-
-        // Show/hide no results message
-        if (visibleCount === 0) {
-          noResults?.classList.remove('hidden');
-        } else {
-          noResults?.classList.add('hidden');
-        }
-      }
-
-      // Dish Type filter handler
-      dishTypeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const y = window.scrollY;
-          activeDishType = button.getAttribute('data-dish-type') || 'todas';
-          updateButtonStyles(dishTypeButtons, activeDishType, 'data-dish-type');
-          filterMenu();
-          window.scrollTo({ top: y, behavior: 'instant' });
+      // Close options panel when an option is selected
+      document.querySelectorAll('.mob-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          allOpts.forEach(o => o.classList.add('hidden'));
+          groupBtns.forEach(b => b.classList.remove('mob-group-active'));
         });
       });
-
-      // Country filter handler
-      countryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const y = window.scrollY;
-          activeCountry = button.getAttribute('data-country') || 'todos';
-          updateButtonStyles(countryButtons, activeCountry, 'data-country');
-          filterMenu();
-          window.scrollTo({ top: y, behavior: 'instant' });
-        });
-      });
-
-      // Vegetarian filter handler
-      vegetarianButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const y = window.scrollY;
-          activeVegetarian = button.getAttribute('data-vegetarian') || 'todos';
-          updateButtonStyles(vegetarianButtons, activeVegetarian, 'data-vegetarian');
-          filterMenu();
-          window.scrollTo({ top: y, behavior: 'instant' });
-        });
-      });
-
-      // Initial filter
-      filterMenu();
     });
   </script>
 
   <script>
-    // Sticky filter centering on desktop
-    function centerStickyFilter() {
-      const aside = document.querySelector('aside');
-      if (!aside) return;
+    // Align filter with first grid row when sticky starts; center when scrolling further
+    document.addEventListener('DOMContentLoaded', () => {
+      const aside = document.getElementById('filter-aside') as HTMLElement | null;
+      const card = aside?.querySelector(':scope > div') as HTMLElement | null;
+      if (!aside || !card) return;
 
-      // Only apply on desktop (lg breakpoint = 1024px)
-      if (window.innerWidth < 1024) return;
+      const NAVBAR_H = 96; // 6rem
 
-      const filterBox = aside.querySelector('div');
-      const navbarHeight = 96; // h-24 = 6rem = 96px
-      const viewportHeight = window.innerHeight;
-      const filterHeight = filterBox ? filterBox.offsetHeight : 200;
+      function update() {
+        const available = window.innerHeight - NAVBAR_H;
+        const cardH = card.offsetHeight;
+        const centeredPad = Math.max(0, (available - cardH) / 2);
 
-      // Center the filter in the remaining viewport below navbar
-      const remainingHeight = viewportHeight - navbarHeight;
-      const centerTop = navbarHeight + (remainingHeight - filterHeight) / 2;
+        // How far the section has scrolled past the sticky trigger point
+        const parentTop = aside.parentElement!.getBoundingClientRect().top;
+        const stickyOffset = Math.max(0, NAVBAR_H - parentTop);
+        const t = Math.min(stickyOffset / 200, 1);
 
-      // Minimum top = navbar + 16px gap
-      const finalTop = Math.max(navbarHeight + 16, centerTop);
-      aside.style.top = finalTop + 'px';
+        aside.style.paddingTop = `${centeredPad * t}px`;
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    });
+  </script>
+
+  <style>
+    .filter-btn {
+      color: #556B2F;
+      background: transparent;
     }
+    .filter-btn:hover {
+      background: rgba(85,107,47,0.08);
+    }
+    .filter-btn.active-filter {
+      background: #556B2F;
+      color: #FDF5E6;
+    }
+    .mob-filter-btn {
+      color: #556B2F;
+      background: rgba(85,107,47,0.08);
+      border: 1px solid rgba(85,107,47,0.15);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .mob-filter-btn.mob-active {
+      background: #556B2F;
+      color: #FDF5E6;
+      border-color: #556B2F;
+    }
+    .mob-group-btn.mob-group-active {
+      color: #556B2F;
+      border-bottom: 2px solid #556B2F;
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 
-    // Run on load and resize
-    window.addEventListener('load', centerStickyFilter);
-    window.addEventListener('resize', centerStickyFilter);
-    // Also run immediately on DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', centerStickyFilter);
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let activeDishType = 'todas';
+      let activeCountry = 'todos';
+      let activeVegetarian = 'todos';
+
+      const dishTypeButtons = document.querySelectorAll('.dish-type-btn');
+      const countryButtons  = document.querySelectorAll('.country-btn');
+      const vegButtons      = document.querySelectorAll('.vegetarian-btn');
+      const menuItems       = document.querySelectorAll('.menu-item');
+      const noResults       = document.getElementById('no-results');
+
+      function setActive(buttons: NodeListOf<Element>, attr: string, value: string) {
+        buttons.forEach(btn => {
+          const isActive = btn.getAttribute(attr) === value;
+          // Desktop sidebar
+          btn.classList.toggle('active-filter', isActive);
+          // Mobile pills
+          btn.classList.toggle('mob-active', isActive);
+        });
+      }
+
+      function filterMenu() {
+        let visible = 0;
+        menuItems.forEach(item => {
+          const type  = item.getAttribute('data-dish-type');
+          const ctry  = item.getAttribute('data-country');
+          const veg   = item.getAttribute('data-is-vegetarian');
+
+          const show =
+            (activeDishType === 'todas' || type === activeDishType) &&
+            (activeCountry  === 'todos' || ctry === activeCountry) &&
+            (activeVegetarian === 'todos' || (activeVegetarian === 'si' && veg === 'true'));
+
+          (item as HTMLElement).style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        noResults?.classList.toggle('hidden', visible > 0);
+      }
+
+      dishTypeButtons.forEach(btn => btn.addEventListener('click', () => {
+        activeDishType = btn.getAttribute('data-dish-type') || 'todas';
+        setActive(dishTypeButtons, 'data-dish-type', activeDishType);
+        filterMenu();
+      }));
+
+      countryButtons.forEach(btn => btn.addEventListener('click', () => {
+        activeCountry = btn.getAttribute('data-country') || 'todos';
+        setActive(countryButtons, 'data-country', activeCountry);
+        filterMenu();
+      }));
+
+      vegButtons.forEach(btn => btn.addEventListener('click', () => {
+        activeVegetarian = btn.getAttribute('data-vegetarian') || 'todos';
+        setActive(vegButtons, 'data-vegetarian', activeVegetarian);
+        filterMenu();
+      }));
+
+      filterMenu();
+    });
   </script>
 </Layout>

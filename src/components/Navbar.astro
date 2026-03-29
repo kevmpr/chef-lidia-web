@@ -10,7 +10,7 @@ const navItems = [
   { href: '/contacto', label: 'Contacto' },
 ];
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <nav class="bg-primary shadow-sm border-b border-primary-dark sticky top-0 z-50">

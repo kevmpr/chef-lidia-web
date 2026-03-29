@@ -2,75 +2,159 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import Button from '../components/Button.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import DailySpecialCarousel from '../components/DailySpecialCarousel.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import homeBg from '../assets/home.png';
+import menuData from '../data/menu.json';
+import type { MenuData } from '../types/menu';
+
+const menu = menuData as MenuData;
+const carouselItems = menu.categories
+  .flatMap(c => c.items)
+  .filter(item => item.isDailySpecial === true && item.image);
+
+const dishImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/dishes/*', { eager: true });
+function getDishImage(imagePath: string | null | undefined): ImageMetadata | null {
+  if (!imagePath) return null;
+  const filename = imagePath.split('/').pop();
+  const key = `/src/assets/dishes/${filename}`;
+  return dishImages[key]?.default ?? null;
+}
 ---
 
 <Layout
-  title="Catering Peruana y Argentina Premium - Chef Lidia | Parque Patricios, CABA"
-  description="Catering profesional de cocina peruana y argentina en Parque Patricios. Viandas corporativas con factura C, menú ejecutivo y especialidades gourmet. Lomo saltado, milanesas premium y más."
+  title="Chef Lidia y Familia | Cocina Peruana y Argentina - Parque Patricios"
+  description="Cocina peruana y argentina con historia. Especialidades del día preparadas desde la cocina de su hogar, ahora en local propio en Parque Patricios. Viandas, almuerzo y cena."
 >
   <Navbar />
 
-  <main class="bg-cream">
-    <!-- Hero Section -->
-    <section class="bg-cream py-20 md:py-28 lg:py-32">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl">
-          <!-- Main headline -->
-          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold mb-6 leading-tight text-primary">
-            Excelencia Gastronómica<br/>
-            <span class="text-primary-dark">para tu Empresa</span>
+  <!-- Fixed background — stays static regardless of scroll or content height -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <Image
+      src={homeBg}
+      alt="Chef Lidia cocina"
+      width={1920}
+      height={1080}
+      class="w-full h-full object-cover object-center blur-sm scale-110"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-stone-900/70"></div>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="relative h-[calc(100vh-6rem)] min-h-[500px] flex flex-col justify-end">
+      <div class="px-6 pb-14 md:pb-20 lg:pb-24">
+        <div class="container mx-auto max-w-4xl">
+          <span class="inline-block text-xs font-semibold tracking-[0.2em] text-white/50 uppercase mb-5">Parque Patricios · Buenos Aires</span>
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight mb-5">
+            Cocina con historia.<br class="hidden sm:block"/>
+            Sabor que se siente.
           </h1>
-
-          <!-- Subheadline -->
-          <p class="text-xl md:text-2xl lg:text-3xl mb-6 text-gray-800 font-light leading-relaxed max-w-3xl">
-            Especialidades peruanas y argentinas preparadas con ingredientes de calidad
+          <p class="text-lg md:text-xl text-white/75 max-w-2xl leading-relaxed mb-8">
+            Especialidades peruanas y argentinas, viandas corporativas y almuerzo de lunes a viernes.
           </p>
-
-          <!-- Value proposition -->
-          <p class="text-base md:text-lg mb-10 text-gray-700 leading-relaxed max-w-2xl">
-            Ofrecemos soluciones de catering profesional para empresas del Distrito Tecnológico, menú ejecutivo diario y servicio de delivery. Calidad garantizada en cada plato.
-          </p>
-
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button href="/empresas" variant="secondary" size="lg" class="shadow-xl hover:shadow-2xl hover:scale-105">
-              Soluciones Corporativas
-            </Button>
-            <Button href="/menu" variant="primary" size="lg" class="border-2 border-primary hover:bg-primary-light shadow-lg hover:shadow-xl hover:scale-105">
-              Ver Menú Completo
-            </Button>
-          </div>
-
-          <!-- Trust indicators -->
-          <div class="flex flex-wrap gap-6 text-sm text-gray-600">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Menú Ejecutivo Diario</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Delivery en CABA</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Catering Empresarial</span>
-            </div>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/menu"
+              class="inline-flex items-center gap-2 bg-cream/90 hover:bg-cream text-primary px-7 py-3.5 rounded-xl font-semibold transition-all duration-300 shadow-lg"
+            >
+              Ver Menú
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a
+              href="/empresas"
+              class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white/50 px-7 py-3.5 rounded-xl font-semibold transition-all duration-300"
+            >
+              Servicio Corporativo
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Daily Specials Carousel -->
-    <DailySpecialCarousel />
+    <!-- Divider -->
+    <div class="bg-cream py-4 flex items-center justify-center gap-3">
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+      <div class="flex gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
+      </div>
+      <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+    </div>
+
+    <!-- Especialidades del día -->
+    {carouselItems.length > 0 && (
+      <section class="relative py-20 md:py-28">
+
+        <div class="px-4 sm:px-6 lg:px-8 mb-12">
+          <div class="max-w-5xl mx-auto">
+            <span class="inline-block text-xs font-semibold tracking-[0.2em] text-white/50 uppercase mb-3">Hoy en la cocina</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-2">Menú del Día</h2>
+            <p class="text-white/60">Cada día ofrecemos 2 menús distintos. Consultá disponibilidad por WhatsApp.</p>
+          </div>
+        </div>
+
+        <!-- Infinite marquee carousel -->
+        <div class="overflow-hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+          <div class="marquee-track flex gap-4">
+            {/* Render items twice for seamless infinite loop */}
+            {[...carouselItems, ...carouselItems].map((item, i) => {
+              const image = getDishImage(item.image);
+              return (
+                <div class="marquee-card flex-shrink-0 w-64 md:w-72 group">
+                  <div class="relative bg-cream/90 hover:bg-cream rounded-2xl overflow-hidden transition-all duration-300">
+                    <div class="absolute top-[-1px] bottom-[-1px] left-0 w-1.5 bg-[#556B2F] z-10"></div>
+                    {image && (
+                      <div class="aspect-square overflow-hidden">
+                        <Image
+                          src={image}
+                          alt={item.name}
+                          width={300}
+                          height={300}
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div class="px-5 py-4">
+                      <h3 class="text-base font-serif font-bold text-primary">{item.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div class="px-4 sm:px-6 lg:px-8 mt-10 text-center">
+          <a
+            href="/menu"
+            class="inline-flex items-center gap-2 bg-cream/90 hover:bg-cream text-primary px-7 py-3.5 rounded-xl font-semibold transition-all duration-300 shadow-lg"
+          >
+            Ver menú completo
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </section>
+    )}
+
+    <style>
+      .marquee-track {
+        width: max-content;
+        animation: marquee 18s linear infinite;
+        padding: 0 1rem;
+      }
+@keyframes marquee {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    </style>
+
   </main>
 
   <Footer />
