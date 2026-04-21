@@ -12,7 +12,7 @@
           "allergens": ["gluten", "soy", "eggs"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa.png"
+          "image": "/assets/dishes/menu/chaufa.jpg"
         },
         {
           "id": "arroz-chaufa-mediano",
@@ -21,7 +21,7 @@
           "price": 20000,
           "allergens": ["gluten", "soy", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa.png"
+          "image": "/assets/dishes/menu/chaufa.jpg"
         },
         {
           "id": "arroz-chaufa-especial",
@@ -31,7 +31,7 @@
           "allergens": ["gluten", "soy", "eggs", "shellfish"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa-especial.png"
+          "image": "/assets/dishes/menu/chaufa-especial.jpg"
         },
         {
           "id": "arroz-chaufa-vegetariano",
@@ -41,7 +41,7 @@
           "allergens": ["gluten", "soy", "eggs"],
           "isVegetarian": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/arroz-chaufa-vegetariano.png"
+          "image": "/assets/dishes/menu/chaufa.jpg"
         },
         {
           "id": "lomo-saltado",
@@ -51,7 +51,7 @@
           "allergens": ["gluten"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/lomo-saltado.png"
+          "image": "/assets/dishes/menu/lomo-saltado.jpg"
         },
         {
           "id": "tallarin-saltado",
@@ -60,7 +60,7 @@
           "price": 23000,
           "allergens": ["gluten", "soy"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/tallarin-saltado.png"
+          "image": "/assets/dishes/menu/tallarin-saltado.jpg"
         },
         {
           "id": "aeropuerto-de-pollo",
@@ -69,7 +69,7 @@
           "price": 24000,
           "allergens": ["gluten", "soy", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/aeropuerto.png"
+          "image": "/assets/dishes/menu/aeropuerto.jpg"
         },
         {
           "id": "mostrito",
@@ -79,7 +79,7 @@
           "allergens": ["gluten", "soy", "eggs"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": "/assets/dishes/mostrito.png"
+          "image": "/assets/dishes/menu/mostrito.jpg"
         },
         {
           "id": "pollo-broaster",
@@ -88,7 +88,7 @@
           "price": 21000,
           "allergens": ["gluten"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/pollo-broaster.jpg"
+          "image": "/assets/dishes/menu/pollo-broaster.jpg"
         },
         {
           "id": "chicharron-de-pescado",
@@ -97,7 +97,7 @@
           "price": 26000,
           "allergens": ["gluten", "shellfish"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/chicharron-de-pescado.png"
+          "image": "/assets/dishes/menu/chicharron-de-pescado.jpg"
         },
         {
           "id": "rabas-con-fritas",
@@ -106,7 +106,7 @@
           "price": 26000,
           "allergens": ["gluten", "shellfish", "eggs"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/rabas.png"
+          "image": "/assets/dishes/menu/rabas.jpg"
         },
         {
           "id": "salchipapa-mediana",
@@ -115,7 +115,7 @@
           "price": 15000,
           "allergens": ["gluten"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/salchipapa.png"
+          "image": "/assets/dishes/menu/salchipapa.jpg"
         },
         {
           "id": "salchipapa-grande",
@@ -124,7 +124,7 @@
           "price": 18000,
           "allergens": ["gluten"],
           "dishType": "platos-principales",
-          "image": "/assets/dishes/salchipapa.png"
+          "image": "/assets/dishes/menu/salchipapa.jpg"
         },
         {
           "id": "salchipollo",
@@ -184,7 +184,7 @@
           "price": 12000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa.jpg"
         },
         {
           "id": "milanesa-de-pollo-guarnicion",
@@ -193,7 +193,7 @@
           "price": 12000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa.jpg"
         },
         {
           "id": "milanesa-de-berenjena-guarnicion",
@@ -223,7 +223,7 @@
           "allergens": ["gluten", "eggs"],
           "isDailySpecial": true,
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa-caballo.jpg"
         },
         {
           "id": "milanesa-carne-fugazzeta",
@@ -232,7 +232,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa-fugazzeta.jpg"
         },
         {
           "id": "milanesa-carne-napolitana",
@@ -241,7 +241,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa-napolitana.jpg"
         },
         {
           "id": "milanesa-pollo-caballo",
@@ -250,7 +250,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa-caballo.jpg"
         },
         {
           "id": "milanesa-pollo-fugazzeta",
@@ -259,7 +259,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa-fugazzeta.jpg"
         },
         {
           "id": "milanesa-pollo-napolitana",
@@ -268,7 +268,7 @@
           "price": 14000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/milanesa-napolitana.jpg"
         }
       ]
     },
@@ -283,7 +283,7 @@
           "price": 13000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/hamburguesa-bm.jpg"
         },
         {
           "id": "hamburguesa-cuarto",
@@ -292,7 +292,7 @@
           "price": 13000,
           "allergens": ["gluten", "eggs"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/hamburguesa-14.jpg"
         },
         {
           "id": "hamburguesa-clasica",
@@ -301,7 +301,7 @@
           "price": 13000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/hamburguesa-clasica.jpg"
         },
         {
           "id": "hamburguesa-de-la-casa",
@@ -310,7 +310,7 @@
           "price": 15000,
           "allergens": ["gluten", "eggs", "dairy"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/hamburguesa-de-la-casa.jpg"
         },
         {
           "id": "sandwich-simple",
@@ -328,7 +328,7 @@
           "price": 11000,
           "allergens": ["gluten", "dairy", "eggs"],
           "dishType": "platos-principales",
-          "image": null
+          "image": "/assets/dishes/menu/sandwich-completo-fritas.jpg"
         }
       ]
     },
@@ -352,7 +352,7 @@
           "price": 2000,
           "allergens": ["gluten", "eggs"],
           "dishType": "empanadas",
-          "image": null
+          "image": "/assets/dishes/menu/empanada-carne-frita.jpg"
         },
         {
           "id": "empanada-cebolla-queso",
@@ -372,7 +372,7 @@
           "allergens": ["gluten", "dairy"],
           "isVegetarian": true,
           "dishType": "empanadas",
-          "image": null
+          "image": "/assets/dishes/menu/empanada-jamon-queso.jpg"
         },
         {
           "id": "empanada-pollo",
@@ -381,7 +381,7 @@
           "price": 2000,
           "allergens": ["gluten"],
           "dishType": "empanadas",
-          "image": null
+          "image": "/assets/dishes/menu/empanada-pollo.jpg"
         },
         {
           "id": "empanada-puerro-jamon-queso",
@@ -391,7 +391,7 @@
           "allergens": ["gluten", "dairy"],
           "isVegetarian": true,
           "dishType": "empanadas",
-          "image": null
+          "image": "/assets/dishes/menu/empanada-puerro-jamon-queso.jpg"
         },
         {
           "id": "empanada-verdura",
@@ -401,7 +401,7 @@
           "allergens": ["gluten", "eggs"],
           "isVegetarian": true,
           "dishType": "empanadas",
-          "image": null
+          "image": "/assets/dishes/menu/empanada-verdura.jpg"
         }
       ]
     },
@@ -475,7 +475,7 @@
           "allergens": ["eggs"],
           "isVegetarian": true,
           "dishType": "tartas-tortillas",
-          "image": null
+          "image": "/assets/dishes/menu/tortilla-de-papa.jpg"
         },
         {
           "id": "tortilla-verdura",
@@ -597,7 +597,7 @@
           "allergens": ["dairy"],
           "isDailySpecial": true,
           "dishType": "acompanamientos",
-          "image": null
+          "image": "/assets/dishes/menu/papas-cheddar-bacon.jpg"
         },
         {
           "id": "papas-fritas-cheddar-bacon-grandes",
@@ -606,7 +606,7 @@
           "price": 15000,
           "allergens": ["dairy"],
           "dishType": "acompanamientos",
-          "image": null
+          "image": "/assets/dishes/menu/papas-cheddar-bacon.jpg"
         },
         {
           "id": "papas-fritas-provenzal-medianas",
@@ -614,7 +614,7 @@
           "description": "Papas fritas condimentadas con ajo, perejil fresco y hierbas aromáticas",
           "price": 10500,
           "dishType": "acompanamientos",
-          "image": null
+          "image": "/assets/dishes/menu/papas-provenzal.jpg"
         },
         {
           "id": "papas-fritas-provenzal-grandes",
@@ -622,7 +622,7 @@
           "description": "Papas fritas generosas condimentadas con ajo, perejil fresco y hierbas aromáticas",
           "price": 12500,
           "dishType": "acompanamientos",
-          "image": null
+          "image": "/assets/dishes/menu/papas-provenzal.jpg"
         },
         {
           "id": "revuelto-gramajo",
@@ -656,6 +656,147 @@
           "price": 11000,
           "dishType": "acompanamientos",
           "image": null
+        }
+      ]
+    },
+    {
+      "id": "menu-del-dia",
+      "name": "Menú del Día",
+      "items": [
+        {
+          "id": "albondigas",
+          "name": "Albóndigas",
+          "description": "Albóndigas caseras en salsa de tomate con hierbas frescas",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/albondigas.jpg"
+        },
+        {
+          "id": "filet-de-merluza",
+          "name": "Filet de Merluza",
+          "description": "Filet de merluza fresco al horno o frito con guarnición",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/filet-de-merluza.jpg"
+        },
+        {
+          "id": "guiso-de-lenteja",
+          "name": "Guiso de Lenteja",
+          "description": "Guiso casero de lentejas con verduras y chorizo colorado",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/guiso-de-lenteja.jpg"
+        },
+        {
+          "id": "guiso-de-ternera",
+          "name": "Guiso de Ternera",
+          "description": "Guiso casero de ternera con papas, zanahorias y verduras de estación",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/guiso-de-ternera.jpg"
+        },
+        {
+          "id": "mondongo-a-la-espanola",
+          "name": "Mondongo a la Española",
+          "description": "Mondongo estofado con garbanzos, chorizo y pimentón al estilo español",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/mondongo-a-la-espanola.jpg"
+        },
+        {
+          "id": "noquis",
+          "name": "Ñoquis",
+          "description": "Ñoquis caseros de papa con salsa a elección",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/noquis.jpg"
+        },
+        {
+          "id": "pastel-calabaza",
+          "name": "Pastel de Calabaza",
+          "description": "Pastel casero de calabaza con relleno y cubierta dorada al horno",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/pastel-calabaza.jpg"
+        },
+        {
+          "id": "pollo-a-la-riojana",
+          "name": "Pollo a la Riojana",
+          "description": "Pollo guisado con pimientos, tomate y especias al estilo riojano",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/pollo-a-la-riojana.jpg"
+        },
+        {
+          "id": "pollo-al-horno",
+          "name": "Pollo al Horno",
+          "description": "Pollo al horno jugoso con papas rústicas y hierbas aromáticas",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/pollo-al-horno.jpg"
+        },
+        {
+          "id": "pollo-al-verdeo",
+          "name": "Pollo al Verdeo",
+          "description": "Pollo en salsa cremosa de cebolla de verdeo con guarnición",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/pollo-al-verdeo.jpg"
+        },
+        {
+          "id": "ravioles-con-bolognesa",
+          "name": "Ravioles con Bolognesa",
+          "description": "Ravioles caseros rellenos con salsa bolognesa de carne",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/ravioles-con-bolognesa.jpg"
+        },
+        {
+          "id": "tallarines-con-bolognesa",
+          "name": "Tallarines con Bolognesa",
+          "description": "Tallarines frescos con salsa bolognesa casera de carne",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/tallarines-con-bolognesa.jpg"
+        },
+        {
+          "id": "tallarines-con-carne",
+          "name": "Tallarines con Carne",
+          "description": "Tallarines frescos con ragú de carne al estilo casero",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/tallarines-con-carne.jpg"
+        },
+        {
+          "id": "tallarines-con-pollo",
+          "name": "Tallarines con Pollo",
+          "description": "Tallarines frescos con pollo en salsa casera",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/tallarines-con-pollo.jpg"
+        },
+        {
+          "id": "zapallito-relleno",
+          "name": "Zapallito Relleno",
+          "description": "Zapallito italiano relleno con carne, verduras y queso gratinado",
+          "price": 0,
+          "dishType": "platos-principales",
+          "isDailySpecial": true,
+          "image": "/assets/dishes/menu-of-the-day/zapallito-relleno.jpg"
         }
       ]
     }

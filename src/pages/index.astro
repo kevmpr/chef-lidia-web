@@ -10,15 +10,15 @@ import menuData from '../data/menu.json';
 import type { MenuData } from '../types/menu';
 
 const menu = menuData as MenuData;
-const carouselItems = menu.categories
-  .flatMap(c => c.items)
-  .filter(item => item.isDailySpecial === true && item.image);
+// Carousel: only items from the "menu-del-dia" category that have an image
+const dailyMenuCategory = menu.categories.find(c => c.id === 'menu-del-dia');
+const carouselItems = (dailyMenuCategory?.items ?? []).filter(item => item.image);
 
-const dishImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/dishes/*', { eager: true });
+const dishImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/dishes/menu-of-the-day/*', { eager: true });
 function getDishImage(imagePath: string | null | undefined): ImageMetadata | null {
   if (!imagePath) return null;
   const filename = imagePath.split('/').pop();
-  const key = `/src/assets/dishes/${filename}`;
+  const key = `/src/assets/dishes/menu-of-the-day/${filename}`;
   return dishImages[key]?.default ?? null;
 }
 ---

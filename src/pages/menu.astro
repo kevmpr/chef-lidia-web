@@ -12,13 +12,16 @@ import type { MenuData } from '../types/menu';
 
 const menu = menuData as MenuData;
 
-const dishImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/dishes/*', { eager: true });
+const dishImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/dishes/menu/*', { eager: true });
 function getDishImage(imagePath: string | null | undefined): ImageMetadata | null {
   if (!imagePath) return null;
   const filename = imagePath.split('/').pop();
-  const key = `/src/assets/dishes/${filename}`;
+  const key = `/src/assets/dishes/menu/${filename}`;
   return dishImages[key]?.default ?? null;
 }
+
+// Exclude the daily-menu category from the regular menu grid
+const menuCategories = menu.categories.filter(c => c.id !== 'menu-del-dia');
 ---
 
 <Layout
@@ -161,7 +164,7 @@ function getDishImage(imagePath: string | null | undefined): ImageMetadata | nul
           <!-- Grilla de platos -->
           <div class="flex-1">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="menu-grid">
-              {menu.categories.map((category) =>
+              {menuCategories.map((category) =>
                 category.items.map((item) => (
                   <div
                     class="menu-item"
