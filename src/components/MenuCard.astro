@@ -11,10 +11,13 @@ interface Props {
 
 const { item, highlight = false, image } = Astro.props;
 
-const formattedPrice = `AR$ ${item.price.toLocaleString('es-AR')}`;
+const hasVariants = item.variants && item.variants.length > 0;
+const formattedPrice = hasVariants
+  ? null
+  : `AR$ ${item.price.toLocaleString('es-AR')}`;
 ---
 
-<div class={`group relative bg-cream/90 hover:bg-cream rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300 ${highlight ? 'overflow-hidden' : 'overflow-hidden'}`}>
+<div class={`group relative bg-cream/90 hover:bg-cream rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300`}>
   <div class="absolute top-[-1px] bottom-[-1px] left-0 w-1.5 bg-[#556B2F] z-10"></div>
 
   <!-- Imagen -->
@@ -55,9 +58,20 @@ const formattedPrice = `AR$ ${item.price.toLocaleString('es-AR')}`;
       )}
     </div>
     <div class="mt-3 pt-3 border-t border-primary/10">
-      <span class="text-lg font-bold text-primary">
-        {formattedPrice}
-      </span>
+      {hasVariants ? (
+        <div class="flex flex-col gap-1">
+          {item.variants!.map(v => (
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-primary/60 uppercase tracking-wide">{v.size}</span>
+              <span class="text-sm font-bold text-primary">AR$ {v.price.toLocaleString('es-AR')}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <span class="text-lg font-bold text-primary">
+          {formattedPrice}
+        </span>
+      )}
     </div>
   </div>
 </div>

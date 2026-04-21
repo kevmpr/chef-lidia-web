@@ -5,21 +5,16 @@
       "name": "Especialidades Peruanas",
       "items": [
         {
-          "id": "arroz-chaufa-grande",
-          "name": "Arroz Chaufa Grande",
+          "id": "arroz-chaufa",
+          "name": "Arroz Chaufa",
           "description": "Arroz frito al estilo peruano-chino con pollo, cerdo, huevo y vegetales salteados al wok",
-          "price": 22000,
+          "price": 0,
+          "variants": [
+            { "size": "Mediano", "price": 20000 },
+            { "size": "Grande", "price": 22000 }
+          ],
           "allergens": ["gluten", "soy", "eggs"],
           "isDailySpecial": true,
-          "dishType": "platos-principales",
-          "image": "/assets/dishes/menu/chaufa.jpg"
-        },
-        {
-          "id": "arroz-chaufa-mediano",
-          "name": "Arroz Chaufa Mediano",
-          "description": "Arroz frito al estilo peruano-chino con pollo, cerdo, huevo y vegetales salteados al wok",
-          "price": 20000,
-          "allergens": ["gluten", "soy", "eggs"],
           "dishType": "platos-principales",
           "image": "/assets/dishes/menu/chaufa.jpg"
         },
@@ -109,31 +104,17 @@
           "image": "/assets/dishes/menu/rabas.jpg"
         },
         {
-          "id": "salchipapa-mediana",
-          "name": "Salchipapa Mediana",
+          "id": "salchipapa",
+          "name": "Salchipapa",
           "description": "Papas fritas con salchicha de huacho cortada en rodajas, acompañado de salsas",
-          "price": 15000,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 15000 },
+            { "size": "Grande", "price": 18000 }
+          ],
           "allergens": ["gluten"],
           "dishType": "platos-principales",
           "image": "/assets/dishes/menu/salchipapa.jpg"
-        },
-        {
-          "id": "salchipapa-grande",
-          "name": "Salchipapa Grande",
-          "description": "Papas fritas generosas con salchicha de huacho cortada en rodajas, ideal para compartir",
-          "price": 18000,
-          "allergens": ["gluten"],
-          "dishType": "platos-principales",
-          "image": "/assets/dishes/menu/salchipapa.jpg"
-        },
-        {
-          "id": "salchipollo",
-          "name": "Salchipollo",
-          "description": "Combinación de pollo broaster y salchicha con papas fritas y ensalada fresca",
-          "price": 24000,
-          "allergens": ["gluten"],
-          "dishType": "platos-principales",
-          "image": null
         },
         {
           "id": "arroz-con-vegetales",
@@ -494,57 +475,41 @@
       "name": "Ensaladas",
       "items": [
         {
-          "id": "ensalada-mediana",
-          "name": "Ensalada Mediana",
+          "id": "ensalada",
+          "name": "Ensalada",
           "description": "Ensalada mixta con lechuga, tomate, zanahoria, cebolla y huevo",
-          "price": 9000,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 9000 },
+            { "size": "Grande", "price": 11000 }
+          ],
           "allergens": ["eggs"],
           "isVegetarian": true,
           "dishType": "ensaladas",
           "image": null
         },
         {
-          "id": "ensalada-grande",
-          "name": "Ensalada Grande",
-          "description": "Ensalada mixta generosa con lechuga, tomate, zanahoria, cebolla y huevo",
-          "price": 11000,
-          "allergens": ["eggs"],
-          "isVegetarian": true,
-          "dishType": "ensaladas",
-          "image": null
-        },
-        {
-          "id": "ensalada-pollo-mediana",
-          "name": "Ensalada + Pollo Mediana",
+          "id": "ensalada-pollo",
+          "name": "Ensalada + Pollo",
           "description": "Ensalada mixta con pechuga de pollo grillé, lechuga, tomate, zanahoria y cebolla",
-          "price": 11000,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 11000 },
+            { "size": "Grande", "price": 13000 }
+          ],
           "allergens": ["eggs"],
           "dishType": "ensaladas",
           "image": null
         },
         {
-          "id": "ensalada-pollo-grande",
-          "name": "Ensalada + Pollo Grande",
-          "description": "Ensalada mixta generosa con pechuga de pollo grillé, ideal para una comida completa",
-          "price": 13000,
-          "allergens": ["eggs"],
-          "dishType": "ensaladas",
-          "image": null
-        },
-        {
-          "id": "ensalada-atun-mediana",
-          "name": "Ensalada + Atún Mediana",
+          "id": "ensalada-atun",
+          "name": "Ensalada + Atún",
           "description": "Ensalada mixta con atún al natural, lechuga, tomate, zanahoria y cebolla",
-          "price": 12000,
-          "allergens": ["eggs", "shellfish"],
-          "dishType": "ensaladas",
-          "image": null
-        },
-        {
-          "id": "ensalada-atun-grande",
-          "name": "Ensalada + Atún Grande",
-          "description": "Ensalada mixta generosa con atún al natural, ideal para una comida ligera y completa",
-          "price": 14000,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 12000 },
+            { "size": "Grande", "price": 14000 }
+          ],
           "allergens": ["eggs", "shellfish"],
           "dishType": "ensaladas",
           "image": null
@@ -556,71 +521,53 @@
       "name": "Acompañamientos",
       "items": [
         {
-          "id": "papas-fritas-medianas",
-          "name": "Papas Fritas Medianas",
+          "id": "papas-fritas",
+          "name": "Papas Fritas",
           "description": "Papas fritas doradas y crocantes, ideales para acompañar cualquier plato",
-          "price": 9000,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 9000 },
+            { "size": "Grande", "price": 11000 }
+          ],
           "dishType": "acompanamientos",
           "image": null
         },
         {
-          "id": "papas-fritas-grandes",
-          "name": "Papas Fritas Grandes",
-          "description": "Papas fritas generosas doradas y crocantes, perfectas para compartir",
-          "price": 11000,
-          "dishType": "acompanamientos",
-          "image": null
-        },
-        {
-          "id": "papas-fritas-cheddar-medianas",
-          "name": "Papas Fritas con Cheddar Medianas",
+          "id": "papas-fritas-cheddar",
+          "name": "Papas Fritas con Cheddar",
           "description": "Papas fritas cubiertas con salsa cheddar cremosa y fundida",
-          "price": 11500,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 11500 },
+            { "size": "Grande", "price": 13000 }
+          ],
           "allergens": ["dairy"],
           "dishType": "acompanamientos",
           "image": null
         },
         {
-          "id": "papas-fritas-cheddar-grandes",
-          "name": "Papas Fritas con Cheddar Grandes",
-          "description": "Papas fritas generosas cubiertas con abundante salsa cheddar cremosa",
-          "price": 13000,
-          "allergens": ["dairy"],
-          "dishType": "acompanamientos",
-          "image": null
-        },
-        {
-          "id": "papas-fritas-cheddar-bacon-medianas",
-          "name": "Papas Fritas con Cheddar y Bacon Medianas",
+          "id": "papas-fritas-cheddar-bacon",
+          "name": "Papas Fritas con Cheddar y Bacon",
           "description": "Papas fritas con salsa cheddar fundida y bacon crocante",
-          "price": 13000,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 13000 },
+            { "size": "Grande", "price": 15000 }
+          ],
           "allergens": ["dairy"],
           "isDailySpecial": true,
           "dishType": "acompanamientos",
           "image": "/assets/dishes/menu/papas-cheddar-bacon.jpg"
         },
         {
-          "id": "papas-fritas-cheddar-bacon-grandes",
-          "name": "Papas Fritas con Cheddar y Bacon Grandes",
-          "description": "Papas fritas generosas con salsa cheddar fundida y bacon crocante",
-          "price": 15000,
-          "allergens": ["dairy"],
-          "dishType": "acompanamientos",
-          "image": "/assets/dishes/menu/papas-cheddar-bacon.jpg"
-        },
-        {
-          "id": "papas-fritas-provenzal-medianas",
-          "name": "Papas Fritas a la Provenzal Medianas",
+          "id": "papas-fritas-provenzal",
+          "name": "Papas Fritas a la Provenzal",
           "description": "Papas fritas condimentadas con ajo, perejil fresco y hierbas aromáticas",
-          "price": 10500,
-          "dishType": "acompanamientos",
-          "image": "/assets/dishes/menu/papas-provenzal.jpg"
-        },
-        {
-          "id": "papas-fritas-provenzal-grandes",
-          "name": "Papas Fritas a la Provenzal Grandes",
-          "description": "Papas fritas generosas condimentadas con ajo, perejil fresco y hierbas aromáticas",
-          "price": 12500,
+          "price": 0,
+          "variants": [
+            { "size": "Mediana", "price": 10500 },
+            { "size": "Grande", "price": 12500 }
+          ],
           "dishType": "acompanamientos",
           "image": "/assets/dishes/menu/papas-provenzal.jpg"
         },
@@ -630,30 +577,6 @@
           "description": "Revuelto de papas fritas, jamón, arvejas y huevos, un clásico argentino",
           "price": 15000,
           "allergens": ["eggs", "dairy"],
-          "dishType": "acompanamientos",
-          "image": null
-        },
-        {
-          "id": "guarnicion-extra-chica",
-          "name": "Guarnición Extra Chica",
-          "description": "Porción extra de papas fritas, puré o ensalada para acompañar tu plato",
-          "price": 8000,
-          "dishType": "acompanamientos",
-          "image": null
-        },
-        {
-          "id": "guarnicion-extra-mediana",
-          "name": "Guarnición Extra Mediana",
-          "description": "Porción extra mediana de papas fritas, puré o ensalada para acompañar tu plato",
-          "price": 9000,
-          "dishType": "acompanamientos",
-          "image": null
-        },
-        {
-          "id": "guarnicion-extra-grande",
-          "name": "Guarnición Extra Grande",
-          "description": "Porción extra grande de papas fritas, puré o ensalada, ideal para compartir",
-          "price": 11000,
           "dishType": "acompanamientos",
           "image": null
         }
